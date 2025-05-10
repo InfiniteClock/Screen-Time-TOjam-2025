@@ -13,7 +13,7 @@ public class Notification : MonoBehaviour
     [NonSerialized] public string timeStamp;
 
     public Image icon;
-    public TMP_Text appTitleText;
+    //public TMP_Text appTitleText;
     public TMP_Text notificationTitleText;
     public TMP_Text descriptionText;
     public TMP_Text timeStampText;
@@ -29,7 +29,7 @@ public class Notification : MonoBehaviour
         this.timeStamp = timeStamp;
 
         icon.sprite = App.Get(app).icon;
-        appTitleText.text = App.Get(app).notificationName;
+        //appTitleText.text = App.Get(app).notificationName;
         notificationTitleText.text = title;
         descriptionText.text = description;
         // The popup notification might not have a time stamp
@@ -48,7 +48,7 @@ public class Notification : MonoBehaviour
 
     private void OnDestroy()
     {
-        
+        NotificationManager.RemoveNotification(this);
     }
 
 
