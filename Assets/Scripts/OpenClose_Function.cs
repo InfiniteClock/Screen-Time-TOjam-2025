@@ -42,7 +42,6 @@ public class OpenClose_Function : MonoBehaviour
         {
             isOpen = true;
 
-            StopCoroutine(coroutine);
             coroutine = StartCoroutine(TransitionScreen(1));
         }
     }
@@ -53,7 +52,6 @@ public class OpenClose_Function : MonoBehaviour
         {
             isOpen = false;
 
-            StopCoroutine(coroutine);
             coroutine = StartCoroutine(TransitionScreen(-1));
         }
     }
