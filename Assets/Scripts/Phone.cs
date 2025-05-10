@@ -16,10 +16,6 @@ public class Phone : MonoBehaviour
     {
         StartCoroutine(ClockTick());
     }
-    private void Update()
-    {
-        
-    }
 
     private IEnumerator ClockTick(float secondsPerMin = 0.2f)
     {
@@ -53,4 +49,5 @@ public class Phone : MonoBehaviour
             yield return new WaitForSeconds(secondsPerMin);
         }
     }
+
 }
