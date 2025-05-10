@@ -6,6 +6,8 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class PostFXAdjust : MonoBehaviour
 {
+    public AnimationCurve curve;
+
     private PostProcessVolume vol;
     private LensDistortion lens;
     private ChromaticAberration chrom;
@@ -21,9 +23,8 @@ public class PostFXAdjust : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DistortLens(Vector2 centerOffset, float intensity = 0, float scale = 1)
     {
-        
+
     }
 }
