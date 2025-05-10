@@ -13,22 +13,31 @@ public abstract class App : MonoBehaviour
     public Sprite icon;
     public GameObject actualAppObject;
 
-    Stack<GameObject> menuHistory = new Stack<GameObject>();
+    readonly Stack<AppMenu> menuHistory = new();
+    bool updateHistory = true; // Set to false when closing/opening to keep history
 
-    private static Dictionary<ID, App> All = new Dictionary<ID, App>();
+    /// <summary>
+    /// Is this <see cref="App"/> currently open?
+    /// </summary>
+    public bool IsOpen => Current == this;
+
+
     /// <summary>
     /// What <see cref="App"/> is currently open. Null if on the home screen.
     /// </summary>
     public static App Current { get; private set; }
 
+    private static readonly Dictionary<ID, App> all = new();
+    private static App lastOpenedApp; // Used to clear history if we open a new app
+
     // Add and remove from 'All' list
     private void OnEnable()
     {
-        All.Add(id, this);
+        all.Add(id, this);
     }
     private void OnDisable()
     {
-        All.Remove(id);
+        all.Remove(id);
     }
 
     /// <summary>
@@ -53,16 +62,114 @@ public abstract class App : MonoBehaviour
             // Don't reset history
             Current.Close(false);
         }
+
+        // Delete the history on the last app we opened before this
+        if (lastOpenedApp != null && lastOpenedApp != this)
+            lastOpenedApp.Close(true);
+
+        // Set us as the active app
+        Current = lastOpenedApp = this;
+
+        // If we have no open menus, start history now so the actual app object gets added
+        if (menuHistory.Count == 0)
+        {
+            updateHistory = true;
+            // Turn on main object
+            actualAppObject.SetActive(true);
+        }
+        else
+        {
+            // Turn on everything, then turn on history (so we don't have things in there twice)
+            foreach (AppMenu menu in menuHistory)
+                menu.gameObject.SetActive(true);
+
+            // Start updating history now
+            updateHistory = true;
+        }
     }
 
     public void Close(bool resetMenuHistory)
     {
+        // Pause history
+        updateHistory = false;
 
+        // Turn off all menus
+        if (resetMenuHistory)
+        {
+            while (menuHistory.Count > 0)
+                menuHistory.Pop().gameObject.SetActive(false);
+        }
+
+        // This should be a menu too, but let's just make sure
+        actualAppObject.SetActive(false);
+
+        Current = null;
     }
 
+    public void Back()
+    {
+        // Turn off the current menu
+        if (menuHistory.Count > 0)
+            menuHistory.Pop().gameObject.SetActive(false);
+    }
+
+
+    /// <summary>
+    /// Call this to add the <paramref name="menu"/> to the history
+    /// </summary>
+    /// <param name="menu"></param>
+    public void MenuOpened(AppMenu menu)
+    {
+        if (!updateHistory)
+            return;
+
+        // Make sure this menu isn't already open, then open it
+        if (menuHistory.Count == 0 || menuHistory.Peek() != menu)
+            menuHistory.Push(menu);
+        else
+            Debug.LogWarning($"Tried to open menu '{menu.name}', but that menu is already open for {homeScreenName}!");
+    }
+
+    /// <summary>
+    /// Call this to remove the <paramref name="menu"/> from the history
+    /// </summary>
+    /// <param name="menu"></param>
+    public void MenuClosed(AppMenu menu)
+    {
+        if (!updateHistory)
+            return;
+
+        // Remove the menu if it is currently opened
+        if (menuHistory.Count > 0 && menuHistory.Peek() == menu)
+            menuHistory.Pop();
+        else
+            Debug.LogWarning($"Tried to close menu '{menu.name}', but that was not the active menu for {homeScreenName}!");
+
+        // If we close the actual app, we are donezo
+        if (menu.gameObject == actualAppObject)
+            Close(false);
+    }
     
 
-    public static App Get(ID id) => All[id];
+    /// <summary>
+    /// Returns the <see cref="App"/> with the given <paramref name="id"/>
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public static App Get(ID id) => all[id];
+    /// <summary>
+    /// Opens the <see cref="App"/> with the given <paramref name="id"/>
+    /// </summary>
+    /// <param name="id"></param>
+    public static void Open(ID id) => all[id].Open();
+    /// <summary>
+    /// Goes back in the current <see cref="App"/>
+    /// </summary>
+    public static void BackButtonPressed()
+    {
+        if (Current != null)
+            Current.Back();
+    }
 
     public enum ID
     {

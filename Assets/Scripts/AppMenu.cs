@@ -10,5 +10,12 @@ public class AppMenu : MonoBehaviour
     {
         if (app == null)
             app = GetComponentInParent<App>();
+
+        app.MenuOpened(this);
+    }
+
+    private void OnDisable()
+    {
+        app.MenuClosed(this);
     }
 }
