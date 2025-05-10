@@ -6,7 +6,7 @@ public class OpenClose_Function : MonoBehaviour
 {
     public bool isOpen;
     [Tooltip("Time in seconds for open/close to finish")]
-    public float screenChangeTime;
+    public float screenChangeTime = 0.5f;
     [Tooltip("If there is a scroll bar with a content child, select it here so it doesn't scroll to bottom when opened.")]
     public GameObject content;
 
@@ -20,24 +20,52 @@ public class OpenClose_Function : MonoBehaviour
 
     private void Start()
     {
-        gameObject.transform.localPosition = closePos;
-        gameObject.transform.localScale = Vector3.zero;
-        isOpen = false;
+        // Hide if we are closed
+        if (!isOpen)
+        {
+            gameObject.transform.localPosition = closePos;
+            gameObject.transform.localScale = Vector3.zero;
+        }
     }
     public void ChangeScreen()
     {
-        // 
+        // Toggle open vs closed
+        if (isOpen)
+            Close();
+        else
+            Open();
+    }
+
+    public void Open()
+    {
         if (!isOpen)
         {
-            coroutine = StartCoroutine(TransitionScreen(1));
             isOpen = true;
-        }
-        else
-        {
-            coroutine = StartCoroutine(TransitionScreen(-1));
-            isOpen = false;
+
+            StopCoroutine(coroutine);
+            coroutine = StartCoroutine(TransitionScreen(1));
         }
     }
+
+    public void Close()
+    {
+        if (isOpen)
+        {
+            isOpen = false;
+
+            StopCoroutine(coroutine);
+            coroutine = StartCoroutine(TransitionScreen(-1));
+        }
+    }
+
+    public void SetState(bool open)
+    {
+        if (open)
+            Open();
+        else
+            Close();
+    }
+
     private IEnumerator TransitionScreen(int direction)
     {
         float timer = 0f;
@@ -48,6 +76,7 @@ public class OpenClose_Function : MonoBehaviour
             {
                 gameObject.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / screenChangeTime);
                 gameObject.transform.localPosition = Vector2.Lerp(closePos, openPos, timer / screenChangeTime);
+                // Move content so it doesn't scroll to the bottom
                 if (content != null)
                     content.transform.localPosition = new Vector3(content.transform.localPosition.x, 0f, content.transform.localPosition.z);
             }
