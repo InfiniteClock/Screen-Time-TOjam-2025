@@ -3341,6 +3341,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3beaea1b59b6fdb43b6d3f7507eaef7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &904001349
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,8 +4167,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: App A
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9332c23f12c396b488c88ae906353efa, type: 2}
+  m_sharedMaterial: {fileID: -2202019880489310575, guid: 9332c23f12c396b488c88ae906353efa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4186,7 +4192,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.85
+  m_fontSize: 0.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
