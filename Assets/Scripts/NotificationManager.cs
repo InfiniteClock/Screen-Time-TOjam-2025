@@ -13,11 +13,18 @@ public class NotificationManager : MonoBehaviour
     }
 
     public GameObject notificationPrefab;
+    public Transform notificationHolder;
     public Notification onScreenPopup;
 
     [Space]
-    public Transform notificationHolder;
+    public float popupShowTime = 2f;
+    public float popupMoveTime = 0.5f;
+    public Transform popupOffscreen;
+    public Transform popupOnscreen;
 
+    bool popupCoroutineRunning;
+
+    Queue<PopupDescriptor> popupQueue = new();
     List<Notification> notifications = new();
 
     public static List<Notification> Notifications => instance.notifications;
@@ -40,12 +47,10 @@ public class NotificationManager : MonoBehaviour
 
     void InitPopup(App.ID app, string title, string description, string timeStamp)
     {
-        // TODO: Animation, queue of on-screen notifs?
-
-        onScreenPopup.Init(app, title, description, timeStamp);
-
-        
+        popupQueue.Enqueue(new PopupDescriptor(app, title, description, timeStamp));
     }
+
+    // onScreenPopup.Init(app, title, description, timeStamp);
 
     void AddNotification(App.ID app, string title, string description, string timeStamp)
     {
@@ -54,11 +59,62 @@ public class NotificationManager : MonoBehaviour
         notif.Init(app, title, description, timeStamp);
     }
 
+    private void Update()
+    {
+        // Show popups if any are waiting
+        if (popupQueue.Count > 0 && !popupCoroutineRunning)
+        {
+            PopupDescriptor popup = popupQueue.Dequeue();
+            StartCoroutine(ShowPopup(popup));
+        }
+    }
+
+    IEnumerator ShowPopup(PopupDescriptor popup)
+    {
+        popupCoroutineRunning = true;
+        onScreenPopup.Init(popup.app, popup.title, popup.description, popup.timeStamp);
+
+        float moveTimer = 0;
+        while ((moveTimer += Time.deltaTime) < popupMoveTime)
+        {
+            float fac = moveTimer / popupMoveTime;
+            onScreenPopup.transform.position = Vector3.Lerp(popupOffscreen.position, popupOnscreen.position, fac);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(popupShowTime);
+
+        while ((moveTimer -= Time.deltaTime) > 0)
+        {
+            float fac = moveTimer / popupMoveTime;
+            onScreenPopup.transform.position = Vector3.Lerp(popupOffscreen.position, popupOnscreen.position, fac);
+            yield return null;
+        }
+
+        popupCoroutineRunning = false;
+    }
+
     public static void RemoveNotification(Notification notification)
     {
         if (GameManager.IsGameClosing)
             return;
 
         instance.notifications.Remove(notification);
+    }
+
+    struct PopupDescriptor
+    {
+        public App.ID app;
+        public string title;
+        public string description;
+        public string timeStamp;
+
+        public PopupDescriptor(App.ID app, string title, string description, string timeStamp)
+        {
+            this.app = app;
+            this.title = title;
+            this.description = description;
+            this.timeStamp = timeStamp;
+        }
     }
 }
