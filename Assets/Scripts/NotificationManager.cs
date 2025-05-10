@@ -61,11 +61,6 @@ public class NotificationManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Send(App.ID.Mail, "Email subject here " + Random.Range(100, 1000), "You're fired", "now", NotificationModes.Popup);
-        }
-
         // Show popups if any are waiting
         if (popupQueue.Count > 0 && !popupCoroutineRunning)
         {
@@ -82,7 +77,7 @@ public class NotificationManager : MonoBehaviour
         float moveTimer = 0;
         while ((moveTimer += Time.deltaTime) < popupMoveTime)
         {
-            float fac = moveTimer / popupMoveTime;
+            float fac = Tobo.Util.Ease.SmoothStop3(moveTimer / popupMoveTime);
             onScreenPopup.transform.position = Vector3.Lerp(popupOffscreen.position, popupOnscreen.position, fac);
             yield return null;
         }
@@ -91,7 +86,7 @@ public class NotificationManager : MonoBehaviour
 
         while ((moveTimer -= Time.deltaTime) > 0)
         {
-            float fac = moveTimer / popupMoveTime;
+            float fac = Tobo.Util.Ease.SmoothStop3(moveTimer / popupMoveTime);
             onScreenPopup.transform.position = Vector3.Lerp(popupOffscreen.position, popupOnscreen.position, fac);
             yield return null;
         }
