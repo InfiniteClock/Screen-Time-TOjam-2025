@@ -2,33 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Menu_Notifications : MonoBehaviour
+public class OpenClose_Function : MonoBehaviour
 {
-    public bool open;
+    public bool isOpen;
+    [Tooltip("Time in seconds for open/close to finish")]
     public float screenChangeTime;
+    [Tooltip("If there is a scroll bar with a content child, select it here so it doesn't scroll to bottom when opened.")]
     public GameObject content;
 
-    private Vector2 openPos = Vector2.zero;
-    private Vector2 closePos = new Vector2(2f, -4f);
+    [Space(5)]
+    [Tooltip("The position of the screen when opened.")]
+    public Vector2 openPos = Vector2.zero;
+    [Tooltip("The position of the screen when closed. This should be the origin point where the app is opened from.")]
+    public Vector2 closePos = new Vector2(2f, -4f);
+    
     private Coroutine coroutine;
 
     private void Start()
     {
         gameObject.transform.localPosition = closePos;
         gameObject.transform.localScale = Vector3.zero;
-        open = false;
+        isOpen = false;
     }
     public void ChangeScreen()
     {
-        if (!open)
+        // 
+        if (!isOpen)
         {
             coroutine = StartCoroutine(TransitionScreen(1));
-            open = true;
+            isOpen = true;
         }
         else
         {
             coroutine = StartCoroutine(TransitionScreen(-1));
-            open = false;
+            isOpen = false;
         }
     }
     private IEnumerator TransitionScreen(int direction)
@@ -41,7 +48,8 @@ public class Menu_Notifications : MonoBehaviour
             {
                 gameObject.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / screenChangeTime);
                 gameObject.transform.localPosition = Vector2.Lerp(closePos, openPos, timer / screenChangeTime);
-                content.transform.localPosition = new Vector3 (content.transform.localPosition.x, 0f, content.transform.localPosition.z);
+                if (content != null)
+                    content.transform.localPosition = new Vector3(content.transform.localPosition.x, 0f, content.transform.localPosition.z);
             }
             else
             {
