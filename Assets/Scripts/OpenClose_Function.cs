@@ -58,6 +58,14 @@ public class OpenClose_Function : MonoBehaviour
         }
     }
 
+    public void SetState(bool open)
+    {
+        if (open)
+            Open();
+        else
+            Close();
+    }
+
     private IEnumerator TransitionScreen(int direction)
     {
         float timer = 0f;
