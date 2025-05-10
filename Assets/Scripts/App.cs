@@ -51,6 +51,7 @@ public abstract class App : MonoBehaviour
     /// <summary>
     /// Called before the app object has been disabled.
     /// </summary>
+    /// <remarks>History is still enabled (if you close a menu it will be written to history)</remarks>
     protected abstract void OnAppClosed();
 
 
@@ -86,10 +87,14 @@ public abstract class App : MonoBehaviour
             // Start updating history now
             updateHistory = true;
         }
+
+        OnAppOpened();
     }
 
     public void Close(bool resetMenuHistory)
     {
+        OnAppClosed();
+
         // Pause history
         updateHistory = false;
 
@@ -98,6 +103,12 @@ public abstract class App : MonoBehaviour
         {
             while (menuHistory.Count > 0)
                 menuHistory.Pop().gameObject.SetActive(false);
+        }
+        else
+        {
+            // Turn off without clearing history
+            foreach (AppMenu menu in menuHistory)
+                menu.gameObject.SetActive(false);
         }
 
         // This should be a menu too, but let's just make sure
@@ -108,9 +119,12 @@ public abstract class App : MonoBehaviour
 
     public void Back()
     {
+        BackButtonAction action = OnBackButtonPressed();
+
         // Turn off the current menu
-        if (menuHistory.Count > 0)
-            menuHistory.Pop().gameObject.SetActive(false);
+        if (action == BackButtonAction.GoBackAMenu && menuHistory.Count > 0)
+            // Don't pop - the MenuClosed callback removes it for us
+            menuHistory.Peek().gameObject.SetActive(false);
     }
 
 
@@ -149,7 +163,13 @@ public abstract class App : MonoBehaviour
         if (menu.gameObject == actualAppObject)
             Close(false);
     }
-    
+
+    private void OnApplicationQuit()
+    {
+        // Stop warnings when closing game
+        updateHistory = false;
+    }
+
 
     /// <summary>
     /// Returns the <see cref="App"/> with the given <paramref name="id"/>
@@ -169,6 +189,16 @@ public abstract class App : MonoBehaviour
     {
         if (Current != null)
             Current.Back();
+    }
+    /// <summary>
+    /// Goes home
+    /// </summary>
+    public static void HomeButtonPressed()
+    {
+        if (Current != null)
+        {
+            Current.Close(false);
+        }
     }
 
     public enum ID
