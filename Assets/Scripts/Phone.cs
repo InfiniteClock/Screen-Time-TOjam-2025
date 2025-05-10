@@ -11,6 +11,7 @@ public class Phone : MonoBehaviour
     public bool clockActive = true;
 
     public TextMeshProUGUI clockText;
+    public static string CurrentTime { get; private set; } = string.Empty;
 
     private void Start()
     {
@@ -45,7 +46,8 @@ public class Phone : MonoBehaviour
             }
             int minuteTens = timeMinutes / 10;
             int minuteOnes = timeMinutes % 10;
-            clockText.text = timeHours + ":" + minuteTens + "" + minuteOnes + timeAMPM;
+            CurrentTime = timeHours + ":" + minuteTens + "" + minuteOnes + timeAMPM;
+            clockText.text = CurrentTime;
             yield return new WaitForSeconds(secondsPerMin);
         }
     }
