@@ -11,7 +11,7 @@ public abstract class App : MonoBehaviour
     public string homeScreenName;
     public string notificationName;
     public Sprite icon;
-    public GameObject actualAppObject;
+    public AppMenu mainMenu;
 
     readonly Stack<AppMenu> menuHistory = new();
     bool updateHistory = true; // Set to false when closing/opening to keep history
@@ -76,7 +76,7 @@ public abstract class App : MonoBehaviour
         {
             updateHistory = true;
             // Turn on main object
-            actualAppObject.SetActive(true);
+            mainMenu.gameObject.SetActive(true);
         }
         else
         {
@@ -112,7 +112,7 @@ public abstract class App : MonoBehaviour
         }
 
         // This should be a menu too, but let's just make sure
-        actualAppObject.SetActive(false);
+        mainMenu.gameObject.SetActive(false);
 
         Current = null;
     }
@@ -160,7 +160,7 @@ public abstract class App : MonoBehaviour
             Debug.LogWarning($"Tried to close menu '{menu.name}', but that was not the active menu for {homeScreenName}!");
 
         // If we close the actual app, we are donezo
-        if (menu.gameObject == actualAppObject)
+        if (menu.gameObject == mainMenu)
             Close(false);
     }
 
