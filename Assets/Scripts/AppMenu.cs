@@ -11,15 +11,16 @@ public class AppMenu : MonoBehaviour
 
     private void Awake()
     {
+        app = GetComponentInParent<App>();
         openCloser = GetComponent<OpenClose_Function>();
     }
 
     private void OnEnable()
     {
-        if (app == null)
-            app = GetComponentInParent<App>();
-
-        app.MenuOpened(this);
+        if (!openCloser)
+            app.MenuOpened(this);
+        else if (openCloser.isOpen)
+            app.MenuOpened(this);
     }
 
     private void OnDisable()
@@ -30,7 +31,17 @@ public class AppMenu : MonoBehaviour
     public void SetActive(bool active)
     {
         if (openCloser)
-            openCloser.SetState(active);
+        {
+            // Check if our state has changed
+            if (active != openCloser.isOpen)
+            {
+                openCloser.SetState(active);
+                if (active)
+                    app.MenuOpened(this);
+                else
+                    app.MenuClosed(this);
+            }
+        }
         else
             gameObject.SetActive(active);
     }

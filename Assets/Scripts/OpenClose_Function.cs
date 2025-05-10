@@ -6,7 +6,7 @@ public class OpenClose_Function : MonoBehaviour
 {
     public bool isOpen;
     [Tooltip("Time in seconds for open/close to finish")]
-    public float screenChangeTime = 0.5f;
+    public float screenChangeTime = 0.1f;
     [Tooltip("If there is a scroll bar with a content child, select it here so it doesn't scroll to bottom when opened.")]
     public GameObject content;
 
