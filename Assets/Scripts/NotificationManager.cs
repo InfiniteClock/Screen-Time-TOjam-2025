@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using NotificationModes = Notification.NotificationModes;
 
 public class NotificationManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class NotificationManager : MonoBehaviour
 
     public GameObject notificationPrefab;
     public Notification onScreenPopup;
+    public Image[] notificationBarIcons;
+    public TMPro.TMP_Text notifBarRunoffAmountText; // "+1" when bar is full
 
     [Space]
     public Transform notificationHolder;
@@ -37,9 +40,11 @@ public class NotificationManager : MonoBehaviour
 
     void InitPopup(App.ID app, string title, string description, string timeStamp)
     {
+        // TODO: Animation, queue of on-screen notifs?
+
         onScreenPopup.Init(app, title, description, timeStamp);
 
-        // TODO: Animation, queue of on-screen notifs?
+        
     }
 
     void AddNotification(App.ID app, string title, string description, string timeStamp)
@@ -47,5 +52,41 @@ public class NotificationManager : MonoBehaviour
         Notification notif = Instantiate(notificationPrefab, notificationHolder).GetComponent<Notification>();
         notifications.Add(notif);
         notif.Init(app, title, description, timeStamp);
+
+        UpdateNotificationBarIcons();
+    }
+
+    void UpdateNotificationBarIcons()
+    {
+        for (int i = 0; i < notificationBarIcons.Length; i++)
+        {
+            // Check if this notification icon should be turned on
+            if (i < notifications.Count)
+            {
+                notificationBarIcons[i].gameObject.SetActive(true);
+                notificationBarIcons[i].sprite = notifications[i].icon.sprite;
+            }
+            else
+            {
+                notificationBarIcons[i].gameObject.SetActive(false);
+            }
+        }
+
+        // Check how many didn't fit
+        int leftOverNotifications = notifications.Count - notificationBarIcons.Length;
+
+        if (leftOverNotifications > 0)
+            notifBarRunoffAmountText.text = "+" + leftOverNotifications;
+        else
+            notifBarRunoffAmountText.text = string.Empty;
+    }
+
+    public static void RemoveNotification(Notification notification)
+    {
+        if (GameManager.IsGameClosing)
+            return;
+
+        instance.notifications.Remove(notification);
+        instance.UpdateNotificationBarIcons();
     }
 }
