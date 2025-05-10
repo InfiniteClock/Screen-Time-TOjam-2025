@@ -46,6 +46,11 @@ public class Notification : MonoBehaviour
         App.Open(app);
     }
 
+    private void OnDestroy()
+    {
+        
+    }
+
 
 
     // Redirect to NotificationManager

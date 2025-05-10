@@ -14,13 +14,13 @@ public class NotificationManager : MonoBehaviour
 
     public GameObject notificationPrefab;
     public Notification onScreenPopup;
-    public Image[] notificationBarIcons;
-    public TMPro.TMP_Text notifBarRunoffAmountText; // "+1" when bar is full
 
     [Space]
     public Transform notificationHolder;
 
     List<Notification> notifications = new();
+
+    public static List<Notification> Notifications => instance.notifications;
 
     /// <summary>
     /// Sends a notification.
@@ -52,33 +52,6 @@ public class NotificationManager : MonoBehaviour
         Notification notif = Instantiate(notificationPrefab, notificationHolder).GetComponent<Notification>();
         notifications.Add(notif);
         notif.Init(app, title, description, timeStamp);
-
-        UpdateNotificationBarIcons();
-    }
-
-    void UpdateNotificationBarIcons()
-    {
-        for (int i = 0; i < notificationBarIcons.Length; i++)
-        {
-            // Check if this notification icon should be turned on
-            if (i < notifications.Count)
-            {
-                notificationBarIcons[i].gameObject.SetActive(true);
-                notificationBarIcons[i].sprite = notifications[i].icon.sprite;
-            }
-            else
-            {
-                notificationBarIcons[i].gameObject.SetActive(false);
-            }
-        }
-
-        // Check how many didn't fit
-        int leftOverNotifications = notifications.Count - notificationBarIcons.Length;
-
-        if (leftOverNotifications > 0)
-            notifBarRunoffAmountText.text = "+" + leftOverNotifications;
-        else
-            notifBarRunoffAmountText.text = string.Empty;
     }
 
     public static void RemoveNotification(Notification notification)
@@ -87,6 +60,5 @@ public class NotificationManager : MonoBehaviour
             return;
 
         instance.notifications.Remove(notification);
-        instance.UpdateNotificationBarIcons();
     }
 }
