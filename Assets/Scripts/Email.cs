@@ -9,6 +9,7 @@ public class Email : ScriptableObject
     public Type type;
     public Sender sender;
     public string subject;
+    [TextArea(2, 8)]
     public string body;
 
     public enum Type

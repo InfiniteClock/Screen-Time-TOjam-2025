@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Anthony4
   m_EditorClassIdentifier: 
   sender: 5
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
+  message: Hey can you cover for me this weekend? I hurt my foot and I gotta watch
+    kids soccer gamge
+  responses:
+  - text: What why would I do that?
+    isCorrect: 1
+  - text: No I cant
+    isCorrect: 1
+  - text: Send in your kid to work, maybe he will cover your shift
+    isCorrect: 0

@@ -20,9 +20,7 @@ public class Messaging : ScriptableObject
 
     public Sender sender;
     public string message;
-    public string correctOption1;
-    public string correctOption2;
-    public string wrongOption;
+
 
     public List<Response> responses;
 

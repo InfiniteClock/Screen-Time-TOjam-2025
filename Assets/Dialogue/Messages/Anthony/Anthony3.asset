@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Anthony3
   m_EditorClassIdentifier: 
   sender: 5
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
+  message: Hey are you coming over tn? We're having a work hangout, theres not going
+    to be many of us be would appretiate more
+  responses:
+  - text: Sorry I have some plans with my roomate
+    isCorrect: 1
+  - text: sorry going out with my gf
+    isCorrect: 1
+  - text: I absolutely despise you
+    isCorrect: 0

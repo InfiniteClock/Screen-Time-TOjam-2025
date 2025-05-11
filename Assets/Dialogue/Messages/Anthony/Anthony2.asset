@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Anthony2
   m_EditorClassIdentifier: 
   sender: 5
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
+  message: Hey check out this link
+  responses:
+  - text: fine, <check link>
+    isCorrect: 1
+  - text: sure <check link>
+    isCorrect: 1
+  - text: The only thing I will check out here is you
+    isCorrect: 0

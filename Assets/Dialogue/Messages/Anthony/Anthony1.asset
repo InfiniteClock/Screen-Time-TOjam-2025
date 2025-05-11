@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: Anthony1
   m_EditorClassIdentifier: 
   sender: 5
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
+  message: Yo want to play some games tonight? I got almost a full squad with some
+    other friends of mine
   responses:
-  - text: 
-    isCorrect: 0
-  - text: 
-    isCorrect: 0
-  - text: 
+  - text: I dont have the game installed
+    isCorrect: 1
+  - text: not at home rn
+    isCorrect: 1
+  - text: I'd rather throw myself out of the window
     isCorrect: 0
