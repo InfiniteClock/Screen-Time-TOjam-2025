@@ -5182,6 +5182,8 @@ MonoBehaviour:
   clockActive: 1
   night: 1
   clockText: {fileID: 2004630287}
+  hand: {fileID: 172135790}
+  FX: {fileID: 903344089}
 --- !u!1 &1306791548
 GameObject:
   m_ObjectHideFlags: 0
