@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GF
   m_EditorClassIdentifier: 
   type: 0
-  sender: 0
+  sender: 9
   profileIcon: {fileID: 0}
-  body: 
+  subject: 
+  body: https://pinterest.notarealsite/pin/6786gf18976g8.jpg

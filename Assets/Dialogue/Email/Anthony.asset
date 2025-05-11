@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Anthony
   m_EditorClassIdentifier: 
   type: 0
-  sender: 0
+  sender: 10
   profileIcon: {fileID: 0}
-  body: 
+  subject: 
+  body: https://imnotgonnathinkofareallinkrn.cornonthecob
