@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
-using UnityEditor.Experimental.GraphView;
 
 public class MessagesApp : App
 {
@@ -16,6 +15,22 @@ public class MessagesApp : App
     public GameObject messagePrefab;
     public Transform contentParent;
     public List<Messaging> allMessages;
+
+    [Space]
+    public AppMenu subMenu;
+    public Image subPFP;
+    public TMP_Text subName;
+    public TMP_Text subBody;
+
+    [Space]
+    public List<Button> choiceButtons;
+    public List<TMP_Text> choiceTexts;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            AddMessage(allMessages[Random.Range(0, allMessages.Count)]);
+    }
 
     /// <summary>
     /// Adds a message - doesn't send a notification
@@ -31,28 +46,55 @@ public class MessagesApp : App
         spawnedMessage.transform.GetChild(1).GetComponent<TMP_Text>().text = message.sender.ToString();
 
         // Body (Child 2)
-        spawnedMessage.transform.GetChild(3).GetComponent<TMP_Text>().text = message.message;
+        spawnedMessage.transform.GetChild(2).GetComponent<TMP_Text>().text = message.message;
 
         // Callback to open message
         Button button = spawnedMessage.GetComponent<Button>();
-        button.onClick.AddListener(() => instance.ClickedMessage(message));
+        button.onClick.AddListener(() => instance.ClickedMessage(spawnedMessage, message));
     }
 
-    void ClickedMessage(Messaging message)
+    void ClickedMessage(GameObject msgObj, Messaging message)
     {
         NotificationManager.DialogueClicked(message);
 
-        // TODO: Open message in sub-menu
+        subMenu.SetActive(true);
+        subPFP.sprite = message.pfp;
+        subName.text = message.sender.ToString();
+        subBody.text = message.message;
 
-        /*
-        // Make like button red
-        button.GetComponent<Image>().color = Color.red;
+        // Terrible code to randomize between the 3 reponses
+        int first = Random.Range(0, 3);
+        int second = Random.Range(0, 2);
+        if (first == 0) second++;
+        else if (first == 1)
+            if (second == 1) second = 2;
+        var nums = new List<int> { 0, 1, 2 };
+        nums.Remove(first); nums.Remove(second);
+        int third = nums[0];
 
-        if (post.type == SocialMediaPosts.Type.ad)
-            ScoreManager.IncrementIncorrectOptions();
-        else
+        SetButton(0, first);
+        SetButton(1, second);
+        SetButton(2, third);
+
+        void SetButton(int buttonIndex, int responseIndex)
+        {
+            choiceButtons[buttonIndex].onClick.RemoveAllListeners();
+            choiceButtons[buttonIndex].onClick.AddListener(() => ChoiceClicked(msgObj, message.responses[responseIndex].isCorrect));
+            choiceTexts[buttonIndex].text = message.responses[responseIndex].text;
+        }
+    }
+
+    void ChoiceClicked(GameObject msgObj, bool correct)
+    {
+        subMenu.SetActive(false);
+
+        if (correct)
             ScoreManager.IncrementCorrectOptions();
-        */
+        else
+            ScoreManager.IncrementIncorrectOptions();
+
+        // Get rid of the message itself
+        Destroy(msgObj);
     }
 
 

@@ -175,7 +175,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.4159775, y: 0, z: -239.32362, w: -8.631283}
+  m_margin: {x: 9.4159775, y: 12.55311, z: -332.36426, w: 11.306003}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -332,13 +332,29 @@ PrefabInstance:
 '
       objectReference: {fileID: 0}
     - target: {fileID: 8272912532923362427, guid: 1ef318584ac3a224fbfb564166902fc6, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272912532923362427, guid: 1ef318584ac3a224fbfb564166902fc6, type: 3}
+      propertyPath: m_margin.z
+      value: -330.14902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272912532923362427, guid: 1ef318584ac3a224fbfb564166902fc6, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 9332c23f12c396b488c88ae906353efa, type: 2}
     - target: {fileID: 8272912532923362427, guid: 1ef318584ac3a224fbfb564166902fc6, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272912532923362427, guid: 1ef318584ac3a224fbfb564166902fc6, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -2202019880489310575, guid: 9332c23f12c396b488c88ae906353efa, type: 2}
+    - target: {fileID: 8272912532923362427, guid: 1ef318584ac3a224fbfb564166902fc6, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8272912532923362427, guid: 1ef318584ac3a224fbfb564166902fc6, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
