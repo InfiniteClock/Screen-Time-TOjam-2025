@@ -68,6 +68,6 @@ public class Notification : MonoBehaviour
     {
         Popup = 1,
         Notification = 2,
-        NotificationAndPopup = Popup & Notification
+        NotificationAndPopup = Popup | Notification
     }
 }

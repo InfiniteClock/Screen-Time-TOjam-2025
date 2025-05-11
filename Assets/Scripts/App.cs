@@ -21,23 +21,28 @@ public abstract class App : MonoBehaviour
     /// </summary>
     public bool IsOpen => Current == this;
 
+    /// <summary>
+    /// Should this app have an icon on the home screen?
+    /// </summary>
+    public bool ShowButtonOnHomeScreen { get; set; } = true;
+
 
     /// <summary>
     /// What <see cref="App"/> is currently open. Null if on the home screen.
     /// </summary>
     public static App Current { get; private set; }
 
-    private static readonly Dictionary<ID, App> all = new();
+    public static readonly Dictionary<ID, App> All = new();
     private static App lastOpenedApp; // Used to clear history if we open a new app
 
     // Add and remove from 'All' list
     private void OnEnable()
     {
-        all.Add(id, this);
+        All.Add(id, this);
     }
     private void OnDisable()
     {
-        all.Remove(id);
+        All.Remove(id);
     }
 
     /// <summary>
@@ -176,12 +181,12 @@ public abstract class App : MonoBehaviour
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public static App Get(ID id) => all[id];
+    public static App Get(ID id) => All[id];
     /// <summary>
     /// Opens the <see cref="App"/> with the given <paramref name="id"/>
     /// </summary>
     /// <param name="id"></param>
-    public static void Open(ID id) => all[id].Open();
+    public static void Open(ID id) => All[id].Open();
     /// <summary>
     /// Goes back in the current <see cref="App"/>
     /// </summary>

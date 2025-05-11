@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
+  m_Name: GF4
+  m_EditorClassIdentifier: 
+  sender: 2
+  message: Baby can you pick up a 20 piece chicken nugget on the way back home? I
+    will E-transfer it to you later
+  responses:
+  - text: My food delivery tax is 15% of your order
+    isCorrect: 1
+  - text: yeah I love sharing stuff with you
+    isCorrect: 1
+  - text: Isnt 20 kinda of a lot for you?
+    isCorrect: 0

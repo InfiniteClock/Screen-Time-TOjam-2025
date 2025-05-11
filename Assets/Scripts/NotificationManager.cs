@@ -61,6 +61,9 @@ public class NotificationManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+            Notification.Send((App.ID)Random.Range(1, 4), "Notif", "Description!!!", "now");
+
         // Show popups if any are waiting
         if (popupQueue.Count > 0 && !popupCoroutineRunning)
         {

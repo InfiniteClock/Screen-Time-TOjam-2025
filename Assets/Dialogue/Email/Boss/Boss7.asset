@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc56c773bdb87e4b8a61572bb4b4d17, type: 3}
+  m_Name: Boss7
+  m_EditorClassIdentifier: 
+  type: 0
+  sender: 0
+  subject: 5 year celebration + PRIZE
+  body: CONGRATULATIONS ON WORKING AT Jimmy Horn's for 5 years I'd like to personally
+    as your boss to congratulate at your achievement <employee name here> and how
+    important of an asset and person you are to us You will receive a new keycard
+    with your name and a big red number 5 beside it. Again thank you very much <employee
+    name here> and I hope youre stuck with us for a while
