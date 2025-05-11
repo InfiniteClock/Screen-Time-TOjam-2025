@@ -771,8 +771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cbdb9c563c17046a9decb33a6aa359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swayRotSpeed: 0.01
-  swayDistSpeed: 0.01
+  swayRotSpeed: 0
+  swayDistSpeed: 0
   swayTime: 5
   swayDist: 0
   distance: 1
@@ -2566,89 +2566,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3beaea1b59b6fdb43b6d3f7507eaef7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cosCurve:
+  curve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.0022300575
-      outSlope: 0.0022300575
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 1
-    - serializedVersion: 3
-      time: 0.5
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 1
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -0.00619442
-      outSlope: -0.00619442
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 1
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
-    m_PostInfinity: 1
-    m_RotationOrder: 4
-  sinCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 2.9625866
-      outSlope: 2.9625866
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.66
-    - serializedVersion: 3
-      time: 0.25
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.5
-      inSlope: -2.9987779
-      outSlope: -2.9987779
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.75
-      value: 0
-      inSlope: -0.0038393775
-      outSlope: -0.0038393775
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.96999997
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.5
-      inSlope: 3.1806235
-      outSlope: 3.1806235
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.5
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 1
+    m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!1 &904001349
 GameObject:
@@ -3735,17 +3657,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeHours: 10
-  timeMinutes: 0
-  timeAMPM: PM
-  alarmHours: 8
-  alarmMinutes: 0
-  clockActive: 1
-  night: 1
-  clockText: {fileID: 2004630287}
-  hand: {fileID: 172135790}
-  FX: {fileID: 903344089}
---- !u!1 &1306791548
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.09411766, g: 0.09019608, b: 0.20392159, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1186148532
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186148529}
+  m_CullTransparentMesh: 1
+--- !u!1 &1210301151
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
