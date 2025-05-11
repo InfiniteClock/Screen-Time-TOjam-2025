@@ -205,8 +205,8 @@ public class Phone : MonoBehaviour
         float timer = 0f;
         while (timer < 0.25f)
         {
+            timer += Time.deltaTime;
             thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
-            timer+= Time.deltaTime;
             yield return null;
         }
 
@@ -242,8 +242,8 @@ public class Phone : MonoBehaviour
         timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f); 
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f); 
             yield return null;
         }
     }
@@ -252,8 +252,8 @@ public class Phone : MonoBehaviour
         float timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             yield return null;
         }
 
@@ -277,8 +277,8 @@ public class Phone : MonoBehaviour
         timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             yield return null;
         }
     }
@@ -287,8 +287,8 @@ public class Phone : MonoBehaviour
         float timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             yield return null;
         }
 
@@ -304,8 +304,8 @@ public class Phone : MonoBehaviour
         timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             yield return null;
         }
     }
@@ -314,21 +314,33 @@ public class Phone : MonoBehaviour
         float timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             yield return null;
         }
 
         timer = 0f;
-        tutText.text = "";
+        tutText.text = "This is the mail app. \nThe mail needs to be sorted out.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Tap a message for more details, then either delete or forward it.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Spam mail needs to be deleted. \nTap the X on the message to delete them.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Important mail needs to be forwarded. \nTap the arrow on the message to delete them.";
         yield return new WaitForSeconds(duration);
 
         tutText.text = "";
         timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             yield return null;
         }
     }
@@ -337,21 +349,29 @@ public class Phone : MonoBehaviour
         float timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             yield return null;
         }
 
         timer = 0f;
-        tutText.text = "";
+        tutText.text = "This is the messages app! \nMake sure to answer everyone's messages nicely.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Tap a message for more details, then pick a response.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Hint: Most people prefer when you pick a nice response.";
         yield return new WaitForSeconds(duration);
 
         tutText.text = "";
         timer = 0f;
         while (timer < 0.5f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             yield return null;
         }
     }
@@ -360,21 +380,25 @@ public class Phone : MonoBehaviour
         float timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             yield return null;
         }
 
         timer = 0f;
-        tutText.text = "";
+        tutText.text = "This is the community forums app. \nLike content while ignoring ads.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Tap the heart to like a Branch. \nIgnore the ads or you will get more messages.";
         yield return new WaitForSeconds(duration);
 
         tutText.text = "";
         timer = 0f;
         while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             timer += Time.deltaTime;
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
             yield return null;
         }
     }
