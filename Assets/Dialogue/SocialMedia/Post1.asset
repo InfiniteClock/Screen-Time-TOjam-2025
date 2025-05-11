@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Post1
   m_EditorClassIdentifier: 
   type: 1
-  body: 
+  body: Hey there you  <word 1>  check out this new <word 2> only 20 $ monthly

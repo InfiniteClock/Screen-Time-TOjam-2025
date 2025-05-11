@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 4
-  subject: 
-  body: 
+  subject: New plans available
+  body: 'Dear consumer your plan is going out of service and you are REQUIRED to
+    choose a new one
+
+    Click here to see the options'

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5973fedb3768d704eb0c0302b937aa65, type: 3}
-  m_Name: Post14
+  m_Name: Post26
   m_EditorClassIdentifier: 
   type: 0
-  body: AIMA for swapping my partners underwear with <word 1>
+  body: Help! My husband cant stop looking at <word 1>, how do I cure him?

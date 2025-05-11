@@ -14,5 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 4
-  subject: 
-  body: 
+  subject: Late payment bill
+  body: 'Dear client You are required to pay your bill or email us back notifying
+    us how long do you need to pay.
+
+    If you fail to we will send the big guys
+    after you
+
+    And I hope you took a shower'
