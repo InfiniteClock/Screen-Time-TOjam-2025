@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 2
-  subject: 
-  body: 
+  subject: Need papers
+  body: Hey John I forgot my Passport at your house and Im going on a trip to Brazil
+    this weekend so can you please leave it at the mailbox so I can grab it later?
+    Please put it on file paper written ""DO NOT STEAL"

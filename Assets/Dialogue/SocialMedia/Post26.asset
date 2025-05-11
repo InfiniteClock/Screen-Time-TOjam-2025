@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dc56c773bdb87e4b8a61572bb4b4d17, type: 3}
-  m_Name: DingCambodia3
+  m_Script: {fileID: 11500000, guid: 5973fedb3768d704eb0c0302b937aa65, type: 3}
+  m_Name: Post26
   m_EditorClassIdentifier: 
-  type: 1
-  sender: 3
-  subject: Top 5 most searched words of 1985
-  body: There was not computer back then you fool
+  type: 0
+  body: Help! My husband cant stop looking at <word 1>, how do I cure him?

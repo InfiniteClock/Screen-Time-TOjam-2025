@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 5
-  subject: 
-  body: 
+  subject: Unrecogniged login
+  body: Hello dear user were emailing you to notify that your account has been recently
+    accessed in France

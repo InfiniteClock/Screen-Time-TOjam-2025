@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Post2
   m_EditorClassIdentifier: 
   type: 1
-  body: 
+  body: Check out the new <word 1> the newest creation from <word 2> available at
+    <word 3>

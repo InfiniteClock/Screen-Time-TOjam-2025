@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 4
-  subject: 
-  body: 
+  subject: E-bill ready
+  body: 'Your E-Bill is ready
+
+    click the link bellow to pay it otherwise Im coming
+    for u and better be ready'

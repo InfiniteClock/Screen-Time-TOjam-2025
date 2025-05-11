@@ -14,5 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   sender: 6
-  subject: 
-  body: 
+  subject: Membership discount
+  body: 'Hello user since your membership is expering you will get a 5 dollar discount
+    if you sign in right now
+
+    AND I MEAN NOW THE MOMENT YOU OPEN THE EMAIL
+
+    GO
+    ON SIGN IT, SIGN IT NOW'

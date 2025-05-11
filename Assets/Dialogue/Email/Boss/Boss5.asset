@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Boss5
   m_EditorClassIdentifier: 
   type: 0
-  sender: 
-  subject: 
-  body: 
+  sender: 0
+  subject: Basement flooded
+  body: Hey John Im emailing you just to let you know that the basement has somehow
+    flooded Im going to need you to go downstairs to check out what the heck is going
+    on Bob said he doesnt know what happened but Im pretty sure he flooded the toilet
+    again and tried to fix it and somehow made it worse PS. Non paid extra hours

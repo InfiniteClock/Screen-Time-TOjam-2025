@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 2
-  subject: 
-  body: 
+  subject: Bowling
+  body: Hey cousin so uuuuh I lost my phone and Im emailing you to ask if you want
+    to go bowling this weekend, if yes then send me a letter saying YES otherwise
+    send a letter saying NO THANK YOU

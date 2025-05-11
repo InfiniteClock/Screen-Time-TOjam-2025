@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 4
-  subject: 
-  body: 
+  subject: International call
+  body: 'Hello dear costumer, a international call to Chile has been made on your
+    phone number and we wanted to ask if it was you
+
+    If youre going to Chile
+    can I please tag along pretty please'

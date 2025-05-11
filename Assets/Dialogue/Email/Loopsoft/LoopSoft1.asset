@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 6
-  subject: 
-  body: 
+  subject: Out of country login
+  body: Hello user we're emailing you to notifiy that your acount in London, beware

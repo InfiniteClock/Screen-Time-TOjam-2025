@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Boss2
   m_EditorClassIdentifier: 
   type: 0
-  sender: 
-  subject: 
-  body: 
+  sender: 0
+  subject: Cover shift
+  body: Hey John Im going to need you to do a 2 hour unpaid shift this weekend, one
+    of the staff members broke their foot so hes going to take the day off.... To
+    watch his kid play soccer? It doesnt even make sense. Like I dont know anymore
