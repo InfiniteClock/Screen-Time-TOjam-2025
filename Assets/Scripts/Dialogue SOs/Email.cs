@@ -30,6 +30,9 @@ public class Email : ScriptableObject
         YellCanada,
         WetFlicks,
         Loopsoft,
-
+        Mom,
+        Dad,
+        GF,
+        Anthony
     }
 }

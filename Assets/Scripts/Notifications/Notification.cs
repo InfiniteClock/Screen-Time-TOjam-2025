@@ -7,10 +7,11 @@ using UnityEngine.UI;
 
 public class Notification : MonoBehaviour
 {
-    [NonSerialized] public App.ID app;
-    [NonSerialized] public string title;
-    [NonSerialized] public string description;
-    [NonSerialized] public string timeStamp;
+    [NonSerialized] public NotificationInfo info;
+    public App.ID app => info.app;
+    public string title => info.title;
+    public string description => info.description;
+    public string timeStamp => info.timeStamp;
 
     public Image icon;
     //public TMP_Text appTitleText;
@@ -21,12 +22,9 @@ public class Notification : MonoBehaviour
     /// <summary>
     /// Sets the UI fields of this notification
     /// </summary>
-    public void Init(App.ID app, string title, string description, string timeStamp)
+    public void Init(NotificationInfo info)
     {
-        this.app = app;
-        this.title = title;
-        this.description = description;
-        this.timeStamp = timeStamp;
+        this.info = info;
 
         icon.sprite = App.Get(app).icon;
         //appTitleText.text = App.Get(app).notificationName;
@@ -57,10 +55,9 @@ public class Notification : MonoBehaviour
     /// <summary>
     /// Sends a notification.
     /// </summary>
-    public static void Send(App.ID app, string title, string description, string timeStamp,
-        NotificationModes mode = NotificationModes.NotificationAndPopup)
+    public static void Send(NotificationInfo info, NotificationModes mode = NotificationModes.NotificationAndPopup)
     {
-        NotificationManager.Send(app, title, description, timeStamp, mode);
+        NotificationManager.Send(info, mode);
     }
 
     [Flags]
@@ -69,5 +66,21 @@ public class Notification : MonoBehaviour
         Popup = 1,
         Notification = 2,
         NotificationAndPopup = Popup | Notification
+    }
+}
+
+public struct NotificationInfo
+{
+    public App.ID app;
+    public string title;
+    public string description;
+    public string timeStamp;
+
+    public NotificationInfo(App.ID app, string title, string description, string timeStamp)
+    {
+        this.app = app;
+        this.title = title;
+        this.description = description;
+        this.timeStamp = timeStamp;
     }
 }

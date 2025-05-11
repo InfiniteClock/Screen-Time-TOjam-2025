@@ -6,14 +6,26 @@ using UnityEngine.UI;
 
 public class EmailSelector : MonoBehaviour
 {
-    [SerializeField] private List<Email> PossibleEmails = new List<Email>();
+    [SerializeField] public List<Email> PossibleEmails = new List<Email>();
 
     [SerializeField] private GameObject emailPrefab;
     private GameObject spawnedEmail;
     public static GameObject currentEmailSelection;
     [SerializeField] private Transform location;
 
+
+    [Header("Open Email References")]
+    [SerializeField] private Image profilePicture;
+    [SerializeField] private TextMeshProUGUI sender;
+    [SerializeField] private TextMeshProUGUI subject;
+    [SerializeField] private TextMeshProUGUI TextContent;
+
+    [SerializeField] public SelectingEmail selectedEmail;
+
     private int chosenEmail;
+    [SerializeField] private OpenClose_Function openClose_Function;   
+    
+    
     private void instantiateEmail(GameObject email)
     {
         spawnedEmail = GameObject.Instantiate(emailPrefab, location);
@@ -28,7 +40,8 @@ public class EmailSelector : MonoBehaviour
 
         spawnedEmail.GetComponent<Button>().onClick.AddListener(GameObject.Find("Open Email").GetComponent<OpenClose_Function>().ChangeScreen);
 
-        
+        spawnedEmail.GetComponent<SelectingEmail>().emailID = chosenEmail; 
+       
     }
     private void Update()
     {
@@ -43,4 +56,61 @@ public class EmailSelector : MonoBehaviour
             instantiateEmail(emailPrefab);
         }
     }
+
+    public void UpdateOpenEmailText()
+    {
+        profilePicture.sprite = PossibleEmails[selectedEmail.emailID].profileIcon;
+        sender.text = PossibleEmails[selectedEmail.emailID].sender.ToString();
+        subject.text = PossibleEmails[selectedEmail.emailID].subject.ToString();
+        TextContent.text = PossibleEmails[selectedEmail.emailID].body.ToString();
+
+    }
+    public void openEmailSpamButton()
+    {
+        for (int i = 0; i < PossibleEmails.Count; i++)
+        {
+            if (i == selectedEmail.emailID)
+            {
+                if (PossibleEmails[i].type == Email.Type.Spam)
+                {
+                    ScoreManager.IncrementCorrectOptions();
+                    Debug.Log("correct option: " + ScoreManager.correctOptions);
+                    openClose_Function.Close();
+                    Destroy(selectedEmail.gameObject);
+                }
+                else
+                {
+                    ScoreManager.IncrementIncorrectOptions();
+                    Debug.Log("WRONG OPTION: " + ScoreManager.IncorrectOptions);
+                    openClose_Function.Close();
+                    Destroy(selectedEmail.gameObject);
+                }
+            }
+        }
+    }
+
+    public void openEmailFowardButton()
+    {
+        for (int i = 0; i < PossibleEmails.Count; i++)
+        {
+            if (i == selectedEmail.emailID)
+            {
+                if (PossibleEmails[i].type == Email.Type.Normal)
+                {
+                    ScoreManager.IncrementCorrectOptions();
+                    Debug.Log("correct option: " + ScoreManager.correctOptions);
+                    openClose_Function.Close();
+                    Destroy(selectedEmail.gameObject);
+                }
+                else
+                {
+                    ScoreManager.IncrementIncorrectOptions();
+                    Debug.Log("WRONG OPTION: " + ScoreManager.IncorrectOptions);
+                    openClose_Function.Close();
+                    Destroy(selectedEmail.gameObject);
+                }
+            }
+        }
+    }
+
 }
