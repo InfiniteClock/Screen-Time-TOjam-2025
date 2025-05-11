@@ -25,13 +25,6 @@ public class BranchesApp : App
     public List<Sprite> images;
     public float imageChance;
 
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            AddPost(allPosts[Random.Range(0, allPosts.Count)]);
-    }
-
     /// <summary>
     /// Adds a post - doesn't send a notification
     /// </summary>
@@ -89,9 +82,7 @@ public class BranchesApp : App
     void ClickedPost(Button button, SocialMediaPosts post)
     {
         // Make like button red
-        var colours = button.colors;
-        colours.normalColor = Color.red;
-        button.colors = colours;
+        button.GetComponent<Image>().color = Color.red;
 
         if (post.type == SocialMediaPosts.Type.ad)
             ScoreManager.IncrementIncorrectOptions();
