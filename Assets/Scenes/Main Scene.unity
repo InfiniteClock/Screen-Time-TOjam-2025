@@ -651,7 +651,7 @@ MonoBehaviour:
   screenChangeTime: 0.1
   content: {fileID: 1972036592}
   openPos: {x: 0, y: 0}
-  closePos: {x: 2, y: -4}
+  closePos: {x: 0, y: 3.5}
   emailSelector: {fileID: 0}
 --- !u!114 &160244484
 MonoBehaviour:
@@ -1144,7 +1144,7 @@ MonoBehaviour:
   subject: {fileID: 1263218161}
   TextContent: {fileID: 682665269}
   selectedEmail: {fileID: 0}
-  openClose_Function: {fileID: 229108504}
+  openClose_Function: {fileID: 229108503}
   confettiPrefab: {fileID: 7249507042096263417, guid: d8d820f1b95c7d04b8070674678b8c35, type: 3}
   SpamButtonObj: {fileID: 1492824504}
   FowardButtonObj: {fileID: 1436617598}
@@ -3910,7 +3910,7 @@ MonoBehaviour:
   screenChangeTime: 0.1
   content: {fileID: 0}
   openPos: {x: 0, y: 0}
-  closePos: {x: 2, y: -4}
+  closePos: {x: 2, y: 3.5}
   emailSelector: {fileID: 0}
 --- !u!114 &1003555301
 MonoBehaviour:
@@ -5795,7 +5795,7 @@ MonoBehaviour:
   screenChangeTime: 0.1
   content: {fileID: 555498183}
   openPos: {x: 0, y: 0}
-  closePos: {x: 2, y: -4}
+  closePos: {x: -2, y: 3.5}
   emailSelector: {fileID: 0}
 --- !u!114 &1476260732
 MonoBehaviour:
