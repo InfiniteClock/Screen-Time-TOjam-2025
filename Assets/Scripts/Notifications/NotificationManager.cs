@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static App;
+using System;
 using NotificationModes = Notification.NotificationModes;
 
 public class NotificationManager : MonoBehaviour
@@ -101,6 +101,7 @@ public class NotificationManager : MonoBehaviour
         yield return new WaitForSeconds(notif.delay);
 
         Notification.Send(notif.info, notif.mode);
+        notif.callback?.Invoke();
     }
 
     
@@ -108,33 +109,33 @@ public class NotificationManager : MonoBehaviour
     /// Will send the Notification described in <paramref name="info"/> when the <paramref name="email"/> is clicked, after a <paramref name="delay"/>
     /// </summary>
     /// <remarks>Call once in Start. This isn't reset between days.</remarks>
-    public static void AddNotificationWhenDialogueClicked(Email email, NotificationInfo info, float delay,
+    public static void AddNotificationWhenDialogueClicked(Email email, NotificationInfo info, float delay, Action callback,
         NotificationModes mode = NotificationModes.NotificationAndPopup)
     {
-        instance.AddNotifWhenClicked(email.GetHashCode(), info, delay, mode);
+        instance.AddNotifWhenClicked(email.GetHashCode(), info, delay, callback, mode);
     }
     /// <summary>
     /// Will send the Notification described in <paramref name="info"/> when the <paramref name="message"/> is clicked, after a <paramref name="delay"/>
     /// </summary>
     /// <remarks>Call once in Start. This isn't reset between days.</remarks>
-    public static void AddNotificationWhenDialogueClicked(Messaging message, NotificationInfo info, float delay,
+    public static void AddNotificationWhenDialogueClicked(Messaging message, NotificationInfo info, float delay, Action callback,
         NotificationModes mode = NotificationModes.NotificationAndPopup)
     {
-        instance.AddNotifWhenClicked(message.GetHashCode(), info, delay, mode);
+        instance.AddNotifWhenClicked(message.GetHashCode(), info, delay, callback, mode);
     }
     /// <summary>
     /// Will send the Notification described in <paramref name="info"/> when the <paramref name="post"/> is clicked, after a <paramref name="delay"/>
     /// </summary>
     /// <remarks>Call once in Start. This isn't reset between days.</remarks>
-    public static void AddNotificationWhenDialogueClicked(SocialMediaPosts post, NotificationInfo info, float delay,
+    public static void AddNotificationWhenDialogueClicked(SocialMediaPosts post, NotificationInfo info, float delay, Action callback,
         NotificationModes mode = NotificationModes.NotificationAndPopup)
     {
-        instance.AddNotifWhenClicked(post.GetHashCode(), info, delay, mode);
+        instance.AddNotifWhenClicked(post.GetHashCode(), info, delay, callback, mode);
     }
 
-    void AddNotifWhenClicked(int id, NotificationInfo info, float delay, NotificationModes mode)
+    void AddNotifWhenClicked(int id, NotificationInfo info, float delay, Action callback, NotificationModes mode)
     {
-        dialogueTriggers.Add(id, new DelayedNotification { info = info, delay = delay, mode = mode });
+        dialogueTriggers.Add(id, new DelayedNotification { info = info, delay = delay, mode = mode, callback = callback });
     }
 
     /// <summary>
@@ -203,5 +204,6 @@ public class NotificationManager : MonoBehaviour
         public NotificationInfo info;
         public float delay;
         public NotificationModes mode;
+        public Action callback;
     }
 }
