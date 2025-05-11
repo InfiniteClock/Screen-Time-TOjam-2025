@@ -6,6 +6,10 @@ public class SelectingEmail : MonoBehaviour
 {
     public int emailID;
     [SerializeField] EmailSelector selector;
+    [SerializeField] GameObject confettiPrefab;
+    [SerializeField] GameObject SpamButtonObj;
+    [SerializeField] GameObject FowardButtonObj;
+ 
 
     private void Start()
     {
@@ -32,6 +36,8 @@ public class SelectingEmail : MonoBehaviour
                 {
                     ScoreManager.IncrementCorrectOptions();
                     Debug.Log("correct option: " + ScoreManager.correctOptions);
+                    Instantiate(confettiPrefab,SpamButtonObj.transform.position,confettiPrefab.transform.rotation);
+                    
                     Destroy(gameObject);
                 }
                 else
@@ -55,6 +61,8 @@ public class SelectingEmail : MonoBehaviour
                 {
                     ScoreManager.IncrementCorrectOptions();
                     Debug.Log("correct option: " + ScoreManager.correctOptions);
+                    Instantiate(confettiPrefab, FowardButtonObj.transform.position, confettiPrefab.transform.rotation);
+
                     Destroy(gameObject);
                 }
                 else

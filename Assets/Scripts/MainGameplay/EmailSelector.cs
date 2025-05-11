@@ -23,9 +23,14 @@ public class EmailSelector : MonoBehaviour
     [SerializeField] public SelectingEmail selectedEmail;
 
     private int chosenEmail;
-    [SerializeField] private OpenClose_Function openClose_Function;   
+    [SerializeField] private OpenClose_Function openClose_Function;
+
     
-    
+    [SerializeField] GameObject confettiPrefab;
+    [SerializeField] GameObject SpamButtonObj;
+    [SerializeField] GameObject FowardButtonObj;
+   
+
     private void instantiateEmail(GameObject email)
     {
         spawnedEmail = GameObject.Instantiate(emailPrefab, location);
@@ -75,6 +80,9 @@ public class EmailSelector : MonoBehaviour
                 {
                     ScoreManager.IncrementCorrectOptions();
                     Debug.Log("correct option: " + ScoreManager.correctOptions);
+                  
+                    Instantiate(confettiPrefab, SpamButtonObj.transform.position, confettiPrefab.transform.rotation);
+                    
                     openClose_Function.Close();
                     Destroy(selectedEmail.gameObject);
                 }
@@ -100,7 +108,11 @@ public class EmailSelector : MonoBehaviour
                     ScoreManager.IncrementCorrectOptions();
                     Debug.Log("correct option: " + ScoreManager.correctOptions);
                     openClose_Function.Close();
+                    
+                    Instantiate(confettiPrefab, FowardButtonObj.transform.position, confettiPrefab.transform.rotation);
+                    
                     Destroy(selectedEmail.gameObject);
+
                 }
                 else
                 {
