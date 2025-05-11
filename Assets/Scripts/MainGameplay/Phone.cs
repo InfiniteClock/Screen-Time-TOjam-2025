@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Phone : MonoBehaviour
 {
+    public static Phone Instance { get; private set; }
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public int timeHours = 10;
     public int timeMinutes = 0;
     public string timeAMPM = "PM";

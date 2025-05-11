@@ -43,7 +43,8 @@ public static class ScoreManager
 
         if (totalThingsClicked == totalThingsToClick)
         {
-            // TODO: Go to next nights
+            Debug.Log("Ended night");   
+            Phone.Instance.EndNight();
         }
     }
 
