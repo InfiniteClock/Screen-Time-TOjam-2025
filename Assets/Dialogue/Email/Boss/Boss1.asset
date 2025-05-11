@@ -15,5 +15,6 @@ MonoBehaviour:
   type: 0
   sender: 0
   profileIcon: {fileID: 21300000, guid: 7938cf714839d2d4f984f7d47430752d, type: 3}
+  subject: Openning the store
   body: Hey John Im emailing just to remind you that you're oppening tomorrow Make
     sure to arrive 20 minutes earlier

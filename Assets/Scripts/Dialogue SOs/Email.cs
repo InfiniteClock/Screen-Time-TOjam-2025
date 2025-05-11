@@ -11,6 +11,8 @@ public class Email : ScriptableObject
     public Sender sender;
     public Sprite profileIcon;
     [TextArea(2, 8)]
+    public string subject;
+    [TextArea(2, 8)]
     public string body;
 
     public enum Type

@@ -15,6 +15,7 @@ MonoBehaviour:
   type: 0
   sender: 0
   profileIcon: {fileID: 21300000, guid: 7938cf714839d2d4f984f7d47430752d, type: 3}
+  subject: Cover shift
   body: Hey John Im going to need you to do a 2 hour unpaid shift this weekend, one
     of the staff members broke their foot so hes going to take the day off.... To
     watch his kid play soccer? It doesnt even make sense. Like I dont know anymore
