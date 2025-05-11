@@ -7135,6 +7135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconPrefab: {fileID: 2950181637020571618, guid: 8b49e89a1855e6d4c8fd03e703a22e21, type: 3}
   iconHolder: {fileID: 1582983990}
+  phone: {fileID: 1210301154}
 --- !u!1 &1789718037
 GameObject:
   m_ObjectHideFlags: 0

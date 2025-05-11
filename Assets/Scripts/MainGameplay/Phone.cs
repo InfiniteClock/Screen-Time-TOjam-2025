@@ -104,6 +104,8 @@ public class Phone : MonoBehaviour
     {
         if (ClockRoutine != null) 
             StopCoroutine(ClockRoutine);
+        if (TutorialRoutine != null)
+            StopCoroutine(TutorialRoutine);
 
         // Time until full passout should be half of time to full Vignette Intensity * 2.5
         FX.VignetteIntensity(0.3f, 1f, 4f);
@@ -152,19 +154,24 @@ public class Phone : MonoBehaviour
                 for (int i = 0; i < 100; i++)
                 BranchesApp.AddPost(Notification.NotificationModes.NotificationAndPopup);
                 MessagesApp.AddMessage(Notification.NotificationModes.NotificationAndPopup);
-
+                if (TutorialRoutine != null)
+                    StopCoroutine(TutorialRoutine);
                 TutorialRoutine = StartCoroutine(TutorialOne(5f));
                 break;
             case 2:
                 App.Get(App.ID.Mail).ShowButtonOnHomeScreen = true;
                 App.Get(App.ID.Messages).ShowButtonOnHomeScreen = true;
                 App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = false;
+                if (TutorialRoutine != null)
+                    StopCoroutine(TutorialRoutine);
                 TutorialRoutine = StartCoroutine(TutorialTwo(5f));
                 break;
             case 3:
                 App.Get(App.ID.Mail).ShowButtonOnHomeScreen = true;
                 App.Get(App.ID.Messages).ShowButtonOnHomeScreen = true;
                 App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = true;
+                if (TutorialRoutine != null)
+                    StopCoroutine(TutorialRoutine);
                 TutorialRoutine = StartCoroutine(TutorialThree(5f));
                 break;
             default:
@@ -418,16 +425,22 @@ public class Phone : MonoBehaviour
     {
         if (appNumber == 1 && firstTimeMail)
         {
+            if (TutorialRoutine != null)
+                StopCoroutine(TutorialRoutine);
             TutorialRoutine = StartCoroutine(TutorialMail(5f));
             firstTimeMail = false;
         }
         if (appNumber == 2 && firstTimeMessages)
         {
+            if (TutorialRoutine != null)
+                StopCoroutine(TutorialRoutine);
             TutorialRoutine = StartCoroutine(TutorialMessages(5f));
             firstTimeMessages = false;
         }
         if (appNumber == 3 && firstTimeBranches)
         {
+            if (TutorialRoutine != null)
+                StopCoroutine(TutorialRoutine);
             TutorialRoutine = StartCoroutine(TutorialBranches(5f));
             firstTimeBranches = false;
         }

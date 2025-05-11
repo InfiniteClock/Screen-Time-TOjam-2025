@@ -7,7 +7,7 @@ public class AppIconSpawner : MonoBehaviour
 {
     public GameObject iconPrefab;
     public Transform iconHolder;
-
+    public Phone phone;
     Dictionary<App.ID, GameObject> icons = new();
 
     private void Start()
@@ -18,6 +18,7 @@ public class AppIconSpawner : MonoBehaviour
 
             Button button = icon.GetComponentInChildren<Button>();
             button.onClick.AddListener(app.Open); // Tell button to open app
+            button.onClick.AddListener(() => phone.NewAppOpened((int)app.id));
 
             // Set name and icon
             icon.GetComponentInChildren<TMPro.TMP_Text>().text = app.homeScreenName;
