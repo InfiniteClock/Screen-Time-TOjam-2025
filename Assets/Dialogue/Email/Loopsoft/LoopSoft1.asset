@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 6
-  subject: Out of country login
+  profileIcon: {fileID: 21300000, guid: f4e3641b5d79d6a4e8fe91fb3c503961, type: 3}
   body: Hello user we're emailing you to notifiy that your acount in London, beware

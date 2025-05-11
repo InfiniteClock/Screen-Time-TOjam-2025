@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EmailSelector : MonoBehaviour
 {
     [SerializeField] private List<ScriptableObject> PossibleEmails = new List<ScriptableObject>();
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TextMeshProUGUI sender;
+    [SerializeField] private GameObject emailPrefab;
+    private GameObject spawnedEmail;
 
-    // Update is called once per frame
-    void Update()
+    private int chosenEmail;
+
+
+
+    private void instantiateEmail(GameObject email)
     {
+        //picking random email
+        chosenEmail = Random.Range(0, PossibleEmails.Count);
+        
+        //seting newly spawned email as spawned email
+        spawnedEmail = GameObject.Instantiate(emailPrefab);
+       
+        spawnedEmail
         
     }
 }

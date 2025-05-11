@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Dialogue/Email")]
 public class Email : ScriptableObject
 {
     public Type type;
     public Sender sender;
-    public string subject;
+    public Sprite profileIcon;
     [TextArea(2, 8)]
     public string body;
 

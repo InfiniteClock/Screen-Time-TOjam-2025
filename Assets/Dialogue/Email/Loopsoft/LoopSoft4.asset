@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   sender: 6
-  subject: Membership discount
+  profileIcon: {fileID: 21300000, guid: f4e3641b5d79d6a4e8fe91fb3c503961, type: 3}
   body: 'Hello user since your membership is expering you will get a 5 dollar discount
     if you sign in right now
 

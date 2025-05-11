@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 0
-  subject: 5 year celebration + PRIZE
+  profileIcon: {fileID: 21300000, guid: 7938cf714839d2d4f984f7d47430752d, type: 3}
   body: CONGRATULATIONS ON WORKING AT Jimmy Horn's for 5 years I'd like to personally
     as your boss to congratulate at your achievement <employee name here> and how
     important of an asset and person you are to us You will receive a new keycard
