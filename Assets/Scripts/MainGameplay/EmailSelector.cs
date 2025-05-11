@@ -22,7 +22,7 @@ public class EmailSelector : MonoBehaviour
         //seting newly spawned email as spawned email
         spawnedEmail = GameObject.Instantiate(emailPrefab);
        
-        //spawnedEmail
+        
         
     }
 }
