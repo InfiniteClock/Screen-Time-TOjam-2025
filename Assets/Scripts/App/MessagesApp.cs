@@ -26,12 +26,6 @@ public class MessagesApp : App
     public List<Button> choiceButtons;
     public List<TMP_Text> choiceTexts;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            AddMessage(allMessages[Random.Range(0, allMessages.Count)]);
-    }
-
     /// <summary>
     /// Adds a message - doesn't send a notification
     /// </summary>
@@ -52,6 +46,8 @@ public class MessagesApp : App
         Button button = spawnedMessage.GetComponent<Button>();
         button.onClick.AddListener(() => instance.ClickedMessage(spawnedMessage, message));
     }
+
+    public static Messaging RandomMessage() => instance.allMessages[Random.Range(0, instance.allMessages.Count)];
 
     void ClickedMessage(GameObject msgObj, Messaging message)
     {

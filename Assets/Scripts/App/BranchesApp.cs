@@ -79,6 +79,8 @@ public class BranchesApp : App
         button.onClick.AddListener(() => instance.ClickedPost(button, post));
     }
 
+    public static SocialMediaPosts RandomPost() => instance.allPosts[Random.Range(0, instance.allPosts.Count)];
+
     void ClickedPost(Button button, SocialMediaPosts post)
     {
         // Make like button red

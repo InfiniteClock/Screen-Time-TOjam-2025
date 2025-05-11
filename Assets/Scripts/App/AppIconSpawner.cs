@@ -8,7 +8,7 @@ public class AppIconSpawner : MonoBehaviour
     public GameObject iconPrefab;
     public Transform iconHolder;
 
-    Dictionary<App.ID, Button> icons = new();
+    Dictionary<App.ID, GameObject> icons = new();
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class AppIconSpawner : MonoBehaviour
             icon.GetComponentInChildren<TMPro.TMP_Text>().text = app.homeScreenName;
             icon.GetComponentInChildren<Image>().sprite = app.icon;
 
-            icons.Add(app.id, button);
+            icons.Add(app.id, icon);
         }
     }
 

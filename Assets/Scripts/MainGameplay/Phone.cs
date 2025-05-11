@@ -144,16 +144,26 @@ public class Phone : MonoBehaviour
         switch (night)
         {
             case 1:
+                App.Get(App.ID.Mail).ShowButtonOnHomeScreen = true;
+                //App.Get(App.ID.Messages).ShowButtonOnHomeScreen = false;
+                //App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = false;
 
+                EmailSelector.AddEmail();
+                BranchesApp.AddPost(BranchesApp.RandomPost());
+                MessagesApp.AddMessage(MessagesApp.RandomMessage());
 
                 TutorialRoutine = StartCoroutine(TutorialOne(5f));
                 break;
             case 2:
-
+                App.Get(App.ID.Mail).ShowButtonOnHomeScreen = true;
+                App.Get(App.ID.Messages).ShowButtonOnHomeScreen = true;
+                App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = false;
                 TutorialRoutine = StartCoroutine(TutorialTwo(5f));
                 break;
             case 3:
-
+                App.Get(App.ID.Mail).ShowButtonOnHomeScreen = true;
+                App.Get(App.ID.Messages).ShowButtonOnHomeScreen = true;
+                App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = true;
                 TutorialRoutine = StartCoroutine(TutorialThree(5f));
                 break;
             default:
