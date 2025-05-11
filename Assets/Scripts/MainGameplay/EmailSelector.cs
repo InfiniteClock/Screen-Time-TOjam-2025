@@ -27,8 +27,10 @@ public class EmailSelector : MonoBehaviour
         spawnedEmail.transform.GetChild(0).GetComponent<Image>().sprite = PossibleEmails[chosenEmail].profileIcon;
 
         spawnedEmail.GetComponent<Button>().onClick.AddListener(GameObject.Find("Open Email").GetComponent<OpenClose_Function>().ChangeScreen);
-
         
+
+
+
     }
     private void Update()
     {
