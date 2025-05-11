@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tobo.Audio;
 using UnityEngine;
 
 public class SelectingEmail : MonoBehaviour
@@ -22,7 +23,7 @@ public class SelectingEmail : MonoBehaviour
         Debug.Log("clicking on email");
         
         EmailSelector.currentEmailSelection = gameObject;
-        selector.selectedEmail = gameObject.GetComponent<SelectingEmail>();
+        selector.selectedEmail = this;
         
     }
 
@@ -37,7 +38,8 @@ public class SelectingEmail : MonoBehaviour
                     ScoreManager.IncrementCorrectOptions();
                     Debug.Log("correct option: " + ScoreManager.correctOptions);
                     Instantiate(confettiPrefab,SpamButtonObj.transform.position,confettiPrefab.transform.rotation);
-                    
+                    Sound.Confetti.PlayDirect();
+
                     Destroy(gameObject);
                 }
                 else
@@ -62,6 +64,7 @@ public class SelectingEmail : MonoBehaviour
                     ScoreManager.IncrementCorrectOptions();
                     Debug.Log("correct option: " + ScoreManager.correctOptions);
                     Instantiate(confettiPrefab, FowardButtonObj.transform.position, confettiPrefab.transform.rotation);
+                    Sound.Confetti.PlayDirect();
 
                     Destroy(gameObject);
                 }

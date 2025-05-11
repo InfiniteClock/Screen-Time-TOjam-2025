@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Tobo.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,7 +44,7 @@ public class EmailSelector : MonoBehaviour
         spawnedEmail.GetComponentInChildren<TextMeshProUGUI>().text = PossibleEmails[chosenEmail].subject.ToString();
         spawnedEmail.transform.GetChild(0).GetComponent<Image>().sprite = PossibleEmails[chosenEmail].profileIcon;
 
-        spawnedEmail.GetComponent<Button>().onClick.AddListener(GameObject.Find("Open Email").GetComponent<OpenClose_Function>().ChangeScreen);
+        spawnedEmail.GetComponent<Button>().onClick.AddListener(() => GameObject.Find("Open Email").GetComponent<AppMenu>().SetActive(true));
 
         spawnedEmail.GetComponent<SelectingEmail>().emailID = chosenEmail; 
        
@@ -54,7 +55,6 @@ public class EmailSelector : MonoBehaviour
     }
     private void TestSpawnEmail()
     {
-        Debug.Log("running");
         if (Input.GetKeyUp(KeyCode.T)) 
         {
             Debug.Log("spawned email");
@@ -82,6 +82,7 @@ public class EmailSelector : MonoBehaviour
                     Debug.Log("correct option: " + ScoreManager.correctOptions);
                   
                     Instantiate(confettiPrefab, SpamButtonObj.transform.position, confettiPrefab.transform.rotation);
+                    Sound.Confetti.PlayDirect();
                     
                     openClose_Function.Close();
                     Destroy(selectedEmail.gameObject);
@@ -110,7 +111,8 @@ public class EmailSelector : MonoBehaviour
                     openClose_Function.Close();
                     
                     Instantiate(confettiPrefab, FowardButtonObj.transform.position, confettiPrefab.transform.rotation);
-                    
+                    Sound.Confetti.PlayDirect();
+
                     Destroy(selectedEmail.gameObject);
 
                 }

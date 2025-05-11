@@ -2282,6 +2282,9 @@ MonoBehaviour:
   TextContent: {fileID: 795972097}
   selectedEmail: {fileID: 0}
   openClose_Function: {fileID: 270082456}
+  confettiPrefab: {fileID: 0}
+  SpamButtonObj: {fileID: 0}
+  FowardButtonObj: {fileID: 0}
 --- !u!4 &636356659
 Transform:
   m_ObjectHideFlags: 0
@@ -8555,6 +8558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Post Image
       objectReference: {fileID: 0}
+    - target: {fileID: 1287477701836145221, guid: 5be80e404ca2e9549814b8b12a031fb2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.93600464
+      objectReference: {fileID: 0}
     - target: {fileID: 2130264777467192792, guid: 5be80e404ca2e9549814b8b12a031fb2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8635,9 +8642,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2608509106300624760, guid: 5be80e404ca2e9549814b8b12a031fb2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.26620483
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208819204076591701, guid: 5be80e404ca2e9549814b8b12a031fb2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.20199585
+      objectReference: {fileID: 0}
     - target: {fileID: 9124243816159636394, guid: 5be80e404ca2e9549814b8b12a031fb2, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128349235597615707, guid: 5be80e404ca2e9549814b8b12a031fb2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.20199585
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8652,6 +8671,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 231985008}
     m_Modifications:
+    - target: {fileID: 115744082313368651, guid: 97da44d2b17f6dd46834e2ebf328fe18, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.20700073
+      objectReference: {fileID: 0}
     - target: {fileID: 1760008998839980896, guid: 97da44d2b17f6dd46834e2ebf328fe18, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.16799927

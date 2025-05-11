@@ -16,11 +16,13 @@ namespace Tobo.Audio
         {
             None = 0,
             Click = 723667889,
+            Confetti = 862619071,
             Select = 1410561011,
             Tap = 769036,
         }
 
         public static Sound Click => Get(ID.Click);
+        public static Sound Confetti => Get(ID.Confetti);
         public static Sound Select => Get(ID.Select);
         public static Sound Tap => Get(ID.Tap);
 
@@ -32,6 +34,7 @@ namespace Tobo.Audio
         {
             { "None", Sound.ID.None },
             { "Click", Sound.ID.Click },
+            { "Confetti", Sound.ID.Confetti },
             { "Select", Sound.ID.Select },
             { "Tap", Sound.ID.Tap },
         };
