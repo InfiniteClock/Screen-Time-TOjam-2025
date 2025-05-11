@@ -13,7 +13,18 @@ public class EmailSelector : MonoBehaviour
     public static GameObject currentEmailSelection;
     [SerializeField] private Transform location;
 
+
+    [Header("Open Email References")]
+    [SerializeField] private Image profilePicture;
+    [SerializeField] private TextMeshProUGUI sender;
+    [SerializeField] private TextMeshProUGUI subject;
+    [SerializeField] private TextMeshProUGUI TextContent;
+
+    [SerializeField] public SelectingEmail selectedEmail;
+
     private int chosenEmail;
+    
+    
     private void instantiateEmail(GameObject email)
     {
         spawnedEmail = GameObject.Instantiate(emailPrefab, location);
@@ -27,10 +38,9 @@ public class EmailSelector : MonoBehaviour
         spawnedEmail.transform.GetChild(0).GetComponent<Image>().sprite = PossibleEmails[chosenEmail].profileIcon;
 
         spawnedEmail.GetComponent<Button>().onClick.AddListener(GameObject.Find("Open Email").GetComponent<OpenClose_Function>().ChangeScreen);
-        
 
-
-
+        spawnedEmail.GetComponent<SelectingEmail>().emailID = chosenEmail; 
+       
     }
     private void Update()
     {
@@ -45,4 +55,15 @@ public class EmailSelector : MonoBehaviour
             instantiateEmail(emailPrefab);
         }
     }
+
+    public void UpdateOpenEmailText()
+    {
+        profilePicture.sprite = PossibleEmails[selectedEmail.emailID].profileIcon;
+        sender.text = PossibleEmails[selectedEmail.emailID].sender.ToString();
+        subject.text = PossibleEmails[selectedEmail.emailID].subject.ToString();
+        TextContent.text = PossibleEmails[selectedEmail.emailID].body.ToString();
+
+    }
+
+
 }
