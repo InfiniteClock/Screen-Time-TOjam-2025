@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Boss6
   m_EditorClassIdentifier: 
   type: 0
-  sender: 
-  subject: 
-  body: 
+  sender: 0
+  subject: Weird creature
+  body: Hey John theres a weird creature in the basement and everyone is scared to
+    go in there. We drew the short stick while you weren't here and you were left
+    with the shortest stick so Im going to need you to go down there and check out
+    what it is I will give you 20 bucks if hide it in bobs cabinet

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Boss3
   m_EditorClassIdentifier: 
   type: 0
-  sender: 
-  subject: 
-  body: 
+  sender: 0
+  subject: Mandatory party presence
+  body: Hey john my kid is having a birthday party and I dont want to be stuck with
+    my wife so you are required to come to his birthday party so I can hide from
+    her

@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Boss7
   m_EditorClassIdentifier: 
   type: 0
-  sender: 
-  subject: 
-  body: 
+  sender: 0
+  subject: 5 year celebration + PRIZE
+  body: CONGRATULATIONS ON WORKING AT Jimmy Horn's for 5 years I'd like to personally
+    as your boss to congratulate at your achievement <employee name here> and how
+    important of an asset and person you are to us You will receive a new keycard
+    with your name and a big red number 5 beside it. Again thank you very much <employee
+    name here> and I hope youre stuck with us for a while
