@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
+  m_Name: Mom3
+  m_EditorClassIdentifier: 
+  sender: 0
+  message: '"Hey honey I sent you an email with a recipe I tried last week, you father
+    loved it! link"'
+  responses:
+  - text: <Click link>
+    isCorrect: 1
+  - text: <Check link>
+    isCorrect: 1
+  - text: No
+    isCorrect: 0
