@@ -22,4 +22,46 @@ public class SelectingEmail : MonoBehaviour
         
     }
 
+    public void SpamButton()
+    {
+        for (int i  = 0; i < selector.PossibleEmails.Count;i++)
+        {
+            if(i == emailID)
+            {
+                if (selector.PossibleEmails[i].type == Email.Type.Spam)
+                {
+                    ScoreManager.IncrementCorrectOptions();
+                    Debug.Log(ScoreManager.correctOptions);
+                }
+                else
+                {
+                    ScoreManager.IncrementIncorrectOptions();
+                    Debug.Log(ScoreManager.IncorrectOptions);
+                }
+            }
+        }
+
+    }
+
+    public void FowardButton()
+    {
+        for (int i = 0; i < selector.PossibleEmails.Count;i++)
+        {
+            if (i == emailID)
+            {
+                if (selector.PossibleEmails[i].type == Email.Type.Spam)
+                {
+                    ScoreManager.IncrementCorrectOptions();
+                    Debug.Log(ScoreManager.correctOptions);
+                }
+                else
+                {
+                    ScoreManager.IncrementIncorrectOptions();
+                    Debug.Log(ScoreManager.IncorrectOptions);
+                }
+            }
+        }
+    }
+
+
 }

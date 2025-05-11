@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EmailSelector : MonoBehaviour
 {
-    [SerializeField] private List<Email> PossibleEmails = new List<Email>();
+    [SerializeField] public List<Email> PossibleEmails = new List<Email>();
 
     [SerializeField] private GameObject emailPrefab;
     private GameObject spawnedEmail;
