@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Post10
   m_EditorClassIdentifier: 
   type: 1
-  body: Earn free <word 1> NOW by going to www.<word2>.com
+  body: Earn free <word 1> NOW by going to www.<word 2>.com

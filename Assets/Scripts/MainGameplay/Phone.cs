@@ -147,13 +147,18 @@ public class Phone : MonoBehaviour
         {
             case 1:
                 App.Get(App.ID.Mail).ShowButtonOnHomeScreen = true;
-                //App.Get(App.ID.Messages).ShowButtonOnHomeScreen = false;
-                //App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = false;
+                App.Get(App.ID.Messages).ShowButtonOnHomeScreen = false;
+                App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = false;
 
+                DialogueSpawner.Instance.Day1();
+
+                /*
                 EmailSelector.AddEmail(Notification.NotificationModes.NotificationAndPopup);
-                for (int i = 0; i < 100; i++)
                 BranchesApp.AddPost(Notification.NotificationModes.NotificationAndPopup);
                 MessagesApp.AddMessage(Notification.NotificationModes.NotificationAndPopup);
+                */
+
+
                 if (TutorialRoutine != null)
                     StopCoroutine(TutorialRoutine);
                 TutorialRoutine = StartCoroutine(TutorialOne(5f));
@@ -162,6 +167,9 @@ public class Phone : MonoBehaviour
                 App.Get(App.ID.Mail).ShowButtonOnHomeScreen = true;
                 App.Get(App.ID.Messages).ShowButtonOnHomeScreen = true;
                 App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = false;
+
+                DialogueSpawner.Instance.Day2();
+
                 if (TutorialRoutine != null)
                     StopCoroutine(TutorialRoutine);
                 TutorialRoutine = StartCoroutine(TutorialTwo(5f));
@@ -170,6 +178,9 @@ public class Phone : MonoBehaviour
                 App.Get(App.ID.Mail).ShowButtonOnHomeScreen = true;
                 App.Get(App.ID.Messages).ShowButtonOnHomeScreen = true;
                 App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = true;
+
+                DialogueSpawner.Instance.Day3();
+
                 if (TutorialRoutine != null)
                     StopCoroutine(TutorialRoutine);
                 TutorialRoutine = StartCoroutine(TutorialThree(5f));

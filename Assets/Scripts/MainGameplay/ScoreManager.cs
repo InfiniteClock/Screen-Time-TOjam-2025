@@ -8,14 +8,16 @@ public static class ScoreManager
     public static int IncorrectOptions;
     public static int EndGameLimit;
 
-    public static int IncrementCorrectOptions()
+    public static void IncrementCorrectOptions()
     {
-       return correctOptions++;
+        correctOptions++;
+        OptionClicked();
     }
 
-    public static int IncrementIncorrectOptions()
+    public static void IncrementIncorrectOptions()
     {
-        return IncorrectOptions++;
+        IncorrectOptions++;
+        OptionClicked();
     }
 
     public static int DecrimentCorrectOptions()
@@ -32,6 +34,17 @@ public static class ScoreManager
     {
         correctOptions = 0;
         IncorrectOptions = 0;
+    }
+
+    public static void OptionClicked()
+    {
+        int totalThingsClicked = IncorrectOptions + correctOptions;
+        int totalThingsToClick = DialogueSpawner.MailSpawnedToday + DialogueSpawner.MessagesSpawnedToday + DialogueSpawner.NormalPostsSpawnedToday;
+
+        if (totalThingsClicked == totalThingsToClick)
+        {
+            // TODO: Go to next nights
+        }
     }
 
     public static void CheckForEndGame()

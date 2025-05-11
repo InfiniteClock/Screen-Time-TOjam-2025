@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Post16
   m_EditorClassIdentifier: 
   type: 0
-  body: I tried smelling < word 1> and I love it
+  body: I tried smelling <word 1> and I love it

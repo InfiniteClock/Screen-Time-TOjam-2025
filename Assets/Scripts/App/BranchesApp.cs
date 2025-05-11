@@ -25,10 +25,11 @@ public class BranchesApp : App
     public List<Sprite> images;
     public float imageChance;
 
-    public static void AddPost(Notification.NotificationModes mode, string timestamp = "now")
+    public static SocialMediaPosts AddPost(Notification.NotificationModes mode, string timestamp = "now")
     {
         SocialMediaPosts post = RandomPost();
         AddPost(post, mode, timestamp);
+        return post;
     }
 
     /// <summary>
