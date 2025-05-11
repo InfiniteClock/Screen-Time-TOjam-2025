@@ -31,12 +31,14 @@ public class SelectingEmail : MonoBehaviour
                 if (selector.PossibleEmails[i].type == Email.Type.Spam)
                 {
                     ScoreManager.IncrementCorrectOptions();
-                    Debug.Log(ScoreManager.correctOptions);
+                    Debug.Log("correct option: " + ScoreManager.correctOptions);
+                    Destroy(gameObject);
                 }
                 else
                 {
                     ScoreManager.IncrementIncorrectOptions();
-                    Debug.Log(ScoreManager.IncorrectOptions);
+                    Debug.Log("WRONG OPTION: " + ScoreManager.IncorrectOptions);
+                    Destroy(gameObject);
                 }
             }
         }
@@ -49,15 +51,17 @@ public class SelectingEmail : MonoBehaviour
         {
             if (i == emailID)
             {
-                if (selector.PossibleEmails[i].type == Email.Type.Spam)
+                if (selector.PossibleEmails[i].type == Email.Type.Normal)
                 {
                     ScoreManager.IncrementCorrectOptions();
-                    Debug.Log(ScoreManager.correctOptions);
+                    Debug.Log("correct option: " + ScoreManager.correctOptions);
+                    Destroy(gameObject);
                 }
                 else
                 {
                     ScoreManager.IncrementIncorrectOptions();
-                    Debug.Log(ScoreManager.IncorrectOptions);
+                    Debug.Log("WRONG OPTION: " + ScoreManager.IncorrectOptions);
+                    Destroy(gameObject);
                 }
             }
         }

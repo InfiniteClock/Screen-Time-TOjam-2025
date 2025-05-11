@@ -23,6 +23,7 @@ public class EmailSelector : MonoBehaviour
     [SerializeField] public SelectingEmail selectedEmail;
 
     private int chosenEmail;
+    [SerializeField] private OpenClose_Function openClose_Function;   
     
     
     private void instantiateEmail(GameObject email)
@@ -64,6 +65,52 @@ public class EmailSelector : MonoBehaviour
         TextContent.text = PossibleEmails[selectedEmail.emailID].body.ToString();
 
     }
+    public void openEmailSpamButton()
+    {
+        for (int i = 0; i < PossibleEmails.Count; i++)
+        {
+            if (i == selectedEmail.emailID)
+            {
+                if (PossibleEmails[i].type == Email.Type.Spam)
+                {
+                    ScoreManager.IncrementCorrectOptions();
+                    Debug.Log("correct option: " + ScoreManager.correctOptions);
+                    openClose_Function.Close();
+                    Destroy(selectedEmail.gameObject);
+                }
+                else
+                {
+                    ScoreManager.IncrementIncorrectOptions();
+                    Debug.Log("WRONG OPTION: " + ScoreManager.IncorrectOptions);
+                    openClose_Function.Close();
+                    Destroy(selectedEmail.gameObject);
+                }
+            }
+        }
+    }
 
+    public void openEmailFowardButton()
+    {
+        for (int i = 0; i < PossibleEmails.Count; i++)
+        {
+            if (i == selectedEmail.emailID)
+            {
+                if (PossibleEmails[i].type == Email.Type.Normal)
+                {
+                    ScoreManager.IncrementCorrectOptions();
+                    Debug.Log("correct option: " + ScoreManager.correctOptions);
+                    openClose_Function.Close();
+                    Destroy(selectedEmail.gameObject);
+                }
+                else
+                {
+                    ScoreManager.IncrementIncorrectOptions();
+                    Debug.Log("WRONG OPTION: " + ScoreManager.IncorrectOptions);
+                    openClose_Function.Close();
+                    Destroy(selectedEmail.gameObject);
+                }
+            }
+        }
+    }
 
 }
