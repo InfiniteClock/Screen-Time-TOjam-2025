@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   sender: 5
+  profileIcon: {fileID: 21300000, guid: 1ed3c574dca04b24ca3f66da56fa7a42, type: 3}
   subject: OuterBangs cancelled
   body: Dear user we noticied you have been watching OuterBangs too much and while
-    we know how much you like hairstyling we're cancelling the show to release 5
-    other new shows nobody likes
+    we know how much you like hairstyling but we're cancelling the show to release
+    5 other new shows nobody likes
