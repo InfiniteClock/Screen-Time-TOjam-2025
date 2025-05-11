@@ -17,7 +17,7 @@ public enum Sender
 [CreateAssetMenu(menuName = "Dialogue/Messaging")]
 public class Messaging : ScriptableObject
 {
-
+    public Sprite pfp;
     public Sender sender;
     public string message;
 
