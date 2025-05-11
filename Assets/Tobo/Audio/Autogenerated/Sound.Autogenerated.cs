@@ -15,8 +15,14 @@ namespace Tobo.Audio
         public enum ID
         {
             None = 0,
+            Click = 723667889,
+            Select = 1410561011,
+            Tap = 769036,
         }
 
+        public static Sound Click => Get(ID.Click);
+        public static Sound Select => Get(ID.Select);
+        public static Sound Tap => Get(ID.Tap);
 
         internal static Dictionary<string, string> FilenameToSoundIDName { get; private set; } = new Dictionary<string, string>()
         {
@@ -25,6 +31,9 @@ namespace Tobo.Audio
         internal static Dictionary<string, Sound.ID> SoundIDNameToSoundID { get; private set; } = new Dictionary<string, Sound.ID>()
         {
             { "None", Sound.ID.None },
+            { "Click", Sound.ID.Click },
+            { "Select", Sound.ID.Select },
+            { "Tap", Sound.ID.Tap },
         };
     }
 }
