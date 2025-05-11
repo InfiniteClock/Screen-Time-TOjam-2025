@@ -1241,7 +1241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &270082453
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2071,7 +2071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &636356658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,8 +2115,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e563e97e0945754389f1f4f3b2449e8, type: 2}
   - {fileID: 11400000, guid: e8ad9fe34622ba149b577aae36ff2941, type: 2}
   - {fileID: 11400000, guid: c4d5a331e2864384c82c79ef61325908, type: 2}
-  textMeshProUGUI: {fileID: 0}
-  emailPrefab: {fileID: 0}
+  emailPrefab: {fileID: 1067125991139017414, guid: 1ef318584ac3a224fbfb564166902fc6, type: 3}
+  location: {fileID: 251108474}
 --- !u!4 &636356659
 Transform:
   m_ObjectHideFlags: 0
@@ -4866,8 +4866,13 @@ MonoBehaviour:
   timeHours: 10
   timeMinutes: 0
   timeAMPM: PM
+  alarmHours: 8
+  alarmMinutes: 0
   clockActive: 1
+  night: 1
   clockText: {fileID: 2004630287}
+  hand: {fileID: 0}
+  FX: {fileID: 0}
 --- !u!1 &1212409050
 GameObject:
   m_ObjectHideFlags: 0
