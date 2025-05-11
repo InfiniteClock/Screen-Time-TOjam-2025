@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4701663447828953261}
   - component: {fileID: 6418649571162644998}
   - component: {fileID: 778765236948748377}
+  - component: {fileID: -2450532594165205243}
   m_Layer: 0
   m_Name: Email 1
   m_TagString: Untagged
@@ -136,6 +137,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -2450532594165205243}
+        m_TargetAssemblyTypeName: SelectingEmail, Assembly-CSharp
+        m_MethodName: selectEmail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-2450532594165205243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067125991139017414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f821a24965c9d44ad6dfff255ee7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1067474499398567726
 GameObject:
   m_ObjectHideFlags: 0

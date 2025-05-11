@@ -18,6 +18,9 @@ public class OpenClose_Function : MonoBehaviour
     
     private Coroutine coroutine;
 
+    //reference to email selector to update email content
+    [SerializeField] private EmailSelector emailSelector;
+
     private void Start()
     {
         // Hide if we are closed
@@ -40,6 +43,9 @@ public class OpenClose_Function : MonoBehaviour
     {
         if (!isOpen)
         {
+            //update content
+            emailSelector.UpdateOpenEmailText();
+
             isOpen = true;
 
             coroutine = StartCoroutine(TransitionScreen(1));
