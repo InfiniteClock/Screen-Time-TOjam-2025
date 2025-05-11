@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 4
-  subject: New plans available
+  profileIcon: {fileID: 21300000, guid: f4e3641b5d79d6a4e8fe91fb3c503961, type: 3}
   body: 'Dear consumer your plan is going out of service and you are REQUIRED to
     choose a new one
 

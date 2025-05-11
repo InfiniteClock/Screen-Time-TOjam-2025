@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 4
-  subject: Late payment bill
+  profileIcon: {fileID: 21300000, guid: f4e3641b5d79d6a4e8fe91fb3c503961, type: 3}
   body: 'Dear client You are required to pay your bill or email us back notifying
     us how long do you need to pay.
 

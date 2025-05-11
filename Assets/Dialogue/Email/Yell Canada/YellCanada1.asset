@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   sender: 4
-  subject: E-bill ready
+  profileIcon: {fileID: 21300000, guid: f4e3641b5d79d6a4e8fe91fb3c503961, type: 3}
   body: 'Your E-Bill is ready
 
     click the link bellow to pay it otherwise Im coming
