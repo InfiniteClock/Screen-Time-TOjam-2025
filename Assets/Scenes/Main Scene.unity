@@ -996,8 +996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cbdb9c563c17046a9decb33a6aa359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swayRotSpeed: 0
-  swayDistSpeed: 0
+  swayRotSpeed: 0.01
+  swayDistSpeed: 0.01
   swayTime: 5
   swayDist: 0
   distance: 1
@@ -5177,7 +5177,10 @@ MonoBehaviour:
   timeHours: 10
   timeMinutes: 0
   timeAMPM: PM
+  alarmHours: 8
+  alarmMinutes: 0
   clockActive: 1
+  night: 1
   clockText: {fileID: 2004630287}
 --- !u!1 &1306791548
 GameObject:

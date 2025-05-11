@@ -8,17 +8,22 @@ public class Phone : MonoBehaviour
     public int timeHours = 10;
     public int timeMinutes = 0;
     public string timeAMPM = "PM";
-    public bool clockActive = true;
+    public int alarmHours = 8;
+    public int alarmMinutes = 0;
 
+    public bool clockActive = true;
+    public int night = 1;
     public TextMeshProUGUI clockText;
     public static string CurrentTime { get; private set; } = string.Empty;
-
+    private Coroutine ClockRoutine;
     private void Start()
     {
-        StartCoroutine(ClockTick());
+        // Run tutorials first
+        // Set initial notifications for night
+        StartNight();
     }
 
-    private IEnumerator ClockTick(float secondsPerMin = 0.2f)
+    private IEnumerator ClockTick(float secondsPerMin = 2f)
     {
         while (clockActive)
         {
@@ -52,4 +57,28 @@ public class Phone : MonoBehaviour
         }
     }
 
+    public void StartNight()
+    {
+        timeHours = 10;
+        timeMinutes = 0;
+        timeAMPM = "PM";
+        ClockRoutine = StartCoroutine(ClockTick());
+    }
+    public void EndNight()
+    {
+        StopCoroutine(ClockRoutine);
+
+        // Switch to night over scene
+
+        int sleptHours = alarmHours - timeHours;
+        int sleptMinutes = alarmMinutes - timeMinutes;
+        if (sleptMinutes < 0)
+        {
+            sleptMinutes += 60;
+            sleptHours--;
+        }
+        string sleepGained = sleptHours + ":" + sleptMinutes + " hrs";
+
+        // Change to next night
+    }
 }
