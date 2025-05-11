@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
   m_Name: GF3
   m_EditorClassIdentifier: 
-  sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  sender: 2
+  message: '"Hey babe check out this cute trend, we should do it sometime "'
+  responses:
+  - text: '"Awwwn youre so cute <check link>"'
+    isCorrect: 1
+  - text: '"let me see it  <check Link>"'
+    isCorrect: 1
+  - text: I already did it with bob
+    isCorrect: 0

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
-  m_Name: Mom2
+  m_Name: Mom6
   m_EditorClassIdentifier: 
   sender: 0
-  message: Hey honey can you take care of the cat this week?
+  message: Hey honey did you take the chiken out of the freezer?
   responses:
-  - text: Yeah sure
+  - text: Yea
     isCorrect: 1
-  - text: Im going to leave it with Cate
+  - text: Will do
     isCorrect: 1
-  - text: Im going to sell it
+  - text: Im not going to your birthday party
     isCorrect: 0

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
   m_Name: Bob1
   m_EditorClassIdentifier: 
-  sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  sender: 3
+  message: Wanna go for burguers after our shift today? Im feeling like MacRonnies
+  responses:
+  - text: Yeah if you pay for my food, I already spent it all with my GF
+    isCorrect: 1
+  - text: Sure but I wont eat anything
+    isCorrect: 1
+  - text: When are you going to let me eat you up
+    isCorrect: 0

@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Dad1
   m_EditorClassIdentifier: 
   sender: 1
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  message: 'Son if you have a kid dont whip them with your belt like I did to you.
+    I went to therapy this weekend and I learnt its kinda wrong. So yeah '
+  responses:
+  - text: Dad I didnt need to hear about that but thank you
+    isCorrect: 1
+  - text: Not even a sorry?
+    isCorrect: 1
+  - text: I gotta continue the generational trauma
+    isCorrect: 0

@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Dad2
   m_EditorClassIdentifier: 
   sender: 1
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  message: Please come home your mom is scaring me rn and I need some support here
+  responses:
+  - text: Lmao no thats your problem
+    isCorrect: 1
+  - text: What did you do this time?
+    isCorrect: 1
+  - text: You should leave her
+    isCorrect: 0

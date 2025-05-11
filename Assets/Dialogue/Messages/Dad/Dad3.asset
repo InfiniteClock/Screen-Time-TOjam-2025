@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Dad3
   m_EditorClassIdentifier: 
   sender: 1
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  message: '"Hey kid please create I an account on this website and please click
+    on this link and create an account so I can get 15 bucks. I wil give you a dollar
+    if you do"'
+  responses:
+  - text: fine <check link>
+    isCorrect: 1
+  - text: '"gimme 5 dollars and you have a deal < check link>"'
+    isCorrect: 1
+  - text: I know what you dont
+    isCorrect: 0

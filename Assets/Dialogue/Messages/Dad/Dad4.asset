@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Dad4
   m_EditorClassIdentifier: 
   sender: 1
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  message: Wanna go play baseball this weekend?
+  responses:
+  - text: What about soccer?
+    isCorrect: 1
+  - text: yea sure, I would like some bonding time
+    isCorrect: 1
+  - text: Im going to destroy ur ball
+    isCorrect: 0

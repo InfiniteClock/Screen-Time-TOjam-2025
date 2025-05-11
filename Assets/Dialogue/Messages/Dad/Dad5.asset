@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Dad5
   m_EditorClassIdentifier: 
   sender: 1
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  message: Hey kid do you have some beer lying around
+  responses:
+  - text: No dad I dont
+    isCorrect: 1
+  - text: Carlos drank it all last night and puked all over the place
+    isCorrect: 1
+  - text: I drank it all and passed out on the couch
+    isCorrect: 0

@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
   m_Name: GF4
   m_EditorClassIdentifier: 
-  sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  sender: 2
+  message: Baby can you pick up a 20 piece chicken nugget on the way back home? I
+    will E-transfer it to you later
+  responses:
+  - text: My food delivery tax is 15% of your order
+    isCorrect: 1
+  - text: yeah I love sharing stuff with you
+    isCorrect: 1
+  - text: Isnt 20 kinda of a lot for you?
+    isCorrect: 0

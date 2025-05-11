@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
   m_Name: Bob3
   m_EditorClassIdentifier: 
-  sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  sender: 3
+  message: I swear if I have to open the shop again im going to put ice in the deep
+    frier
+  responses:
+  - text: Please dont do that
+    isCorrect: 1
+  - text: That would be funny as shit
+    isCorrect: 1
+  - text: You should put your head in a deep frier
+    isCorrect: 0

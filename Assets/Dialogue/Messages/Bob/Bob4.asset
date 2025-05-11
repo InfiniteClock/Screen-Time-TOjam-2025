@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
   m_Name: Bob4
   m_EditorClassIdentifier: 
-  sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  sender: 3
+  message: Hey are you going to Boss' son birthday? I dont want to be there alone,
+    PLEASE COME BRO
+  responses:
+  - text: Oh thank god I didnt want to be alone either
+    isCorrect: 1
+  - text: Yeah bro at least its free food
+    isCorrect: 1
+  - text: Im going to dress as a clown and chase children, you should do the same
+    isCorrect: 0

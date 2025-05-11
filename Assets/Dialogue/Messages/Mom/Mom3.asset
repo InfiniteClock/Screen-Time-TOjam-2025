@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Mom3
   m_EditorClassIdentifier: 
   sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  message: '"Hey honey I sent you an email with a recipe I tried last week, you father
+    loved it! link"'
+  responses:
+  - text: <Click link>
+    isCorrect: 1
+  - text: <Check link>
+    isCorrect: 1
+  - text: No
+    isCorrect: 0

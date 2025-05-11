@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
   m_Name: Bob5
   m_EditorClassIdentifier: 
-  sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  sender: 3
+  message: Yo bro why was there a dead racoon on my cabinet
+  responses:
+  - text: What the hell?
+    isCorrect: 1
+  - text: Probably was anthony
+    isCorrect: 1
+  - text: I put it there for 20 bucks
+    isCorrect: 0

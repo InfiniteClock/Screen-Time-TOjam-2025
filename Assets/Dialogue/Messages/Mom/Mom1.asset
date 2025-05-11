@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Mom1
   m_EditorClassIdentifier: 
   sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  message: Do you need some extra money
+  responses:
+  - text: Im doing fine, I will just get some extra shifts
+    isCorrect: 1
+  - text: Yeah but not that much, 20 dollars for a burguer sounds nice
+    isCorrect: 1
+  - text: yeah sure you can bring some vodka on the way back
+    isCorrect: 0

@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Mom5
   m_EditorClassIdentifier: 
   sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  message: How was work?
+  responses:
+  - text: It was fine
+    isCorrect: 1
+  - text: I hate my boss
+    isCorrect: 1
+  - text: I dont have 5 dollars
+    isCorrect: 0

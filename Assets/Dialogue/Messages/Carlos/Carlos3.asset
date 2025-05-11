@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
   m_Name: Carlos3
   m_EditorClassIdentifier: 
-  sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  sender: 4
+  message: yo bro Im having some homies over and we're playing smash, do you want
+    to join?
+  responses:
+  - text: nah Im going out with my gf
+    isCorrect: 1
+  - text: Nah Im going to MacRonnies with bob
+    isCorrect: 1
+  - text: 
+    isCorrect: 0

@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
   m_Name: GF5
   m_EditorClassIdentifier: 
-  sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  sender: 2
+  message: Hey pookie do you want go out to that new restaurant that opened this
+    weekend?
+  responses:
+  - text: yea sure, I would love to
+    isCorrect: 1
+  - text: Ooooh is that the one with the candles?
+    isCorrect: 1
+  - text: I forgot to feed the fish my bad
+    isCorrect: 0
