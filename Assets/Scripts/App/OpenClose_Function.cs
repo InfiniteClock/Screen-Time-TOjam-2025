@@ -44,8 +44,7 @@ public class OpenClose_Function : MonoBehaviour
         if (!isOpen)
         {
             //update content
-            // I am going to kill you bruno
-            if (emailSelector)
+            if (emailSelector != null)
                 emailSelector.UpdateOpenEmailText();
 
             isOpen = true;

@@ -29,10 +29,12 @@ public class Phone : MonoBehaviour
     private Coroutine TutorialRoutine;
     private float currentSleepy = -0.4f;
     private float permanentSleepy = 0f;
+
+    private bool firstTimeMail = true;
+    private bool firstTimeMessages = true;
+    private bool firstTimeBranches = true;
     private void Start()
     {
-        // Run tutorials first
-        // Set initial notifications for night
         StartNight();
     }
 
@@ -138,12 +140,34 @@ public class Phone : MonoBehaviour
         timeMinutes = 0;
         timeAMPM = "PM";
         ClockRoutine = StartCoroutine(ClockTick());
-        TutorialRoutine = StartCoroutine(TutorialText("This is a test message!",10f));
+
+        switch (night)
+        {
+            case 1:
+
+
+                TutorialRoutine = StartCoroutine(TutorialOne(5f));
+                break;
+            case 2:
+
+                TutorialRoutine = StartCoroutine(TutorialTwo(5f));
+                break;
+            case 3:
+
+                TutorialRoutine = StartCoroutine(TutorialThree(5f));
+                break;
+            default:
+                Debug.Log("Night under construction!");
+                break;
+        }
     }
     public void EndNight()
     {
         if (ClockRoutine != null)
             StopCoroutine(ClockRoutine);
+        if (TutorialRoutine != null)
+            StopCoroutine(TutorialRoutine);
+
 
         // Switch to night over scene
 
@@ -158,29 +182,219 @@ public class Phone : MonoBehaviour
 
         // Change to next night
         permanentSleepy += Mathf.Clamp(currentSleepy, 0f, 1f) / 2f;
+        if (night < 3)
+            night++;
+        else
+            // Win the game
+        StartCoroutine(NewDay());
     }
 
-    public IEnumerator TutorialText(string text, float duration)
+    public IEnumerator TutorialOne(float duration)
     {
         float timer = 0f;
-        while (timer < 0.5f)
+        while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.5f);
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             timer+= Time.deltaTime;
             yield return null;
         }
-        tutText.text = text;
-        while (timer < duration)
+
+        timer = 0f;
+        tutText.text = "Welcome to Screentime!";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Your goal is to clear your notifications so you can get to bed on time.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Make sure you are answering your notifications properly - wrong answers can lead to more notifications popping up.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Press the BELL button to see your notifications, and see how late it is.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Press the SQUARE button to return to the home page.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Press the BACK ARROW button to return to the last page you were on.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "You only have one APP for now, so all your notifications will be in there. Click it to see what's inside and clear your notifications!";
+        yield return new WaitForSeconds(duration);
+
+        tutText.text = "";
+        timer = 0f;
+        while (timer < 0.25f)
         {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f); 
             timer += Time.deltaTime;
             yield return null;
         }
-        tutText.text = "";
-        while (timer < duration+0.5f)
+    }
+    public IEnumerator TutorialTwo(float duration)
+    {
+        float timer = 0f;
+        while (timer < 0.25f)
         {
-            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, (timer-duration) / 0.5f); 
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
             timer += Time.deltaTime;
             yield return null;
+        }
+
+        timer = 0f;
+        tutText.text = "You made it to night 2!";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Careful not to stay up too late! \nYou may notice some adverse effects as you miss out on your sleep.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "Time passes quickly when you're on your phone.";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "You may notice you have a new app! \nOpen it up and see what's inside.";
+        yield return new WaitForSeconds(duration);
+
+        tutText.text = "";
+        timer = 0f;
+        while (timer < 0.25f)
+        {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+    public IEnumerator TutorialThree(float duration)
+    {
+        float timer = 0f;
+        while (timer < 0.25f)
+        {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        timer = 0f;
+        tutText.text = "You made it to night 3! \nFeeling sleepy yet?";
+        yield return new WaitForSeconds(duration);
+
+        timer = 0f;
+        tutText.text = "You've got another app! Let's see what this one is like.";
+        yield return new WaitForSeconds(duration);
+
+        tutText.text = "";
+        timer = 0f;
+        while (timer < 0.25f)
+        {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+    public IEnumerator TutorialMail(float duration)
+    {
+        float timer = 0f;
+        while (timer < 0.25f)
+        {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        timer = 0f;
+        tutText.text = "";
+        yield return new WaitForSeconds(duration);
+
+        tutText.text = "";
+        timer = 0f;
+        while (timer < 0.25f)
+        {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+    public IEnumerator TutorialMessages(float duration)
+    {
+        float timer = 0f;
+        while (timer < 0.25f)
+        {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        timer = 0f;
+        tutText.text = "";
+        yield return new WaitForSeconds(duration);
+
+        tutText.text = "";
+        timer = 0f;
+        while (timer < 0.5f)
+        {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+    public IEnumerator TutorialBranches(float duration)
+    {
+        float timer = 0f;
+        while (timer < 0.25f)
+        {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / 0.25f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        timer = 0f;
+        tutText.text = "";
+        yield return new WaitForSeconds(duration);
+
+        tutText.text = "";
+        timer = 0f;
+        while (timer < 0.25f)
+        {
+            thoughtBubble.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer / 0.25f);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+    private IEnumerator NewDay()
+    {
+        float timer = 0f;
+        while (timer < 3f)
+        {
+            timer += Time.deltaTime;
+            // Perform any in between night effects here
+            yield return null;
+        }
+        StartNight();
+    }
+
+    public void NewAppOpened(int appNumber)
+    {
+        if (appNumber == 1 && firstTimeMail)
+        {
+            TutorialRoutine = StartCoroutine(TutorialMail(5f));
+            firstTimeMail = false;
+        }
+        if (appNumber == 2 && firstTimeMessages)
+        {
+            TutorialRoutine = StartCoroutine(TutorialMessages(5f));
+            firstTimeMessages = false;
+        }
+        if (appNumber == 3 && firstTimeBranches)
+        {
+            TutorialRoutine = StartCoroutine(TutorialBranches(5f));
+            firstTimeBranches = false;
         }
     }
 }
