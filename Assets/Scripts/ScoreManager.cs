@@ -35,6 +35,7 @@ public static class ScoreManager
     }
 
     public static void CheckForEndGame()
+
     {
         if (IncorrectOptions >= EndGameLimit)
         {

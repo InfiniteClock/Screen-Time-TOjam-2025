@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Email;
 
 public enum Sender
 {
@@ -12,7 +12,6 @@ public enum Sender
     CarlosRoomate,
     AnthonyAnnoyingFriend,
     DeliveryGuy,
-
 }
 
 [CreateAssetMenu(menuName = "Dialogue/Messaging")]
@@ -25,8 +24,14 @@ public class Messaging : ScriptableObject
     public string correctOption2;
     public string wrongOption;
 
+    public List<Response> responses;
 
 
 
-
+    [Serializable]
+    public struct Response
+    {
+        public string text;
+        public bool isCorrect;
+    }
 }
