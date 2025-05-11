@@ -25,10 +25,16 @@ public class BranchesApp : App
     public List<Sprite> images;
     public float imageChance;
 
+    public static void AddPost(Notification.NotificationModes mode, string timestamp = "now")
+    {
+        SocialMediaPosts post = RandomPost();
+        AddPost(post, mode, timestamp);
+    }
+
     /// <summary>
     /// Adds a post - doesn't send a notification
     /// </summary>
-    public static void AddPost(SocialMediaPosts post)
+    public static void AddPost(SocialMediaPosts post, Notification.NotificationModes mode, string timestamp = "now")
     {
         bool addImage = Random.value < instance.imageChance;
 
@@ -50,7 +56,7 @@ public class BranchesApp : App
         spawnedPost.transform.GetChild(0).GetComponent<Image>().sprite = pfp;
 
         // Name (Child 1)
-        string name = instance.usernames[Random.Range(0, instance.usernames.Count)];
+        string name = "@" + instance.usernames[Random.Range(0, instance.usernames.Count)];
         spawnedPost.transform.GetChild(1).GetComponent<TMP_Text>().text = name;
 
         // Body (Child 3)
@@ -58,6 +64,8 @@ public class BranchesApp : App
         string w1 = GetRandomWord(), w2 = GetRandomWord(), w3 = GetRandomWord();
         body = body.Replace("<word 1>", w1).Replace("<word 2>", w2).Replace("<word 3>", w3);
 
+        Notification.Send(new NotificationInfo(instance.id, "@" + name + " on Branches", body, timestamp), mode);
+   
         string GetRandomWord() => instance.words[Random.Range(0, instance.words.Count)];
 
         spawnedPost.transform.GetChild(3).GetComponent<TMP_Text>().text = body;

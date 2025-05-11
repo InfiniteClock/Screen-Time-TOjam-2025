@@ -148,9 +148,10 @@ public class Phone : MonoBehaviour
                 //App.Get(App.ID.Messages).ShowButtonOnHomeScreen = false;
                 //App.Get(App.ID.CommunityBoard).ShowButtonOnHomeScreen = false;
 
-                EmailSelector.AddEmail();
-                BranchesApp.AddPost(BranchesApp.RandomPost());
-                MessagesApp.AddMessage(MessagesApp.RandomMessage());
+                EmailSelector.AddEmail(Notification.NotificationModes.NotificationAndPopup);
+                for (int i = 0; i < 100; i++)
+                BranchesApp.AddPost(Notification.NotificationModes.NotificationAndPopup);
+                MessagesApp.AddMessage(Notification.NotificationModes.NotificationAndPopup);
 
                 TutorialRoutine = StartCoroutine(TutorialOne(5f));
                 break;

@@ -26,6 +26,13 @@ public class MessagesApp : App
     public List<Button> choiceButtons;
     public List<TMP_Text> choiceTexts;
 
+    public static void AddMessage(Notification.NotificationModes mode, string timestamp = "now")
+    {
+        Messaging message = RandomMessage();
+        AddMessage(message);
+        Notification.Send(new NotificationInfo(instance.id, message.sender.ToString(), message.message, timestamp), mode);
+    }
+
     /// <summary>
     /// Adds a message - doesn't send a notification
     /// </summary>

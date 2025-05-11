@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Tobo.Audio;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,20 +37,22 @@ public class EmailSelector : MonoBehaviour
     [SerializeField] GameObject confettiPrefab;
     [SerializeField] GameObject SpamButtonObj;
     [SerializeField] GameObject FowardButtonObj;
-   
 
-    public static void AddEmail()
+    public static void AddEmail(Notification.NotificationModes mode, string timestamp = "now")
     {
-        instance.instantiateEmail();
+        instance.instantiateEmail(mode, timestamp);
     }
 
-    private void instantiateEmail()
+    private void instantiateEmail(Notification.NotificationModes mode, string timestamp = "now")
     {
         spawnedEmail = Instantiate(emailPrefab, location);
         
         //picking random email
         chosenEmail = Random.Range(0, PossibleEmails.Count);
-        
+
+        Email email = PossibleEmails[chosenEmail];
+        Notification.Send(new NotificationInfo(App.ID.Mail, email.subject, email.body, timestamp), mode);
+
         //seting newly spawned email as spawned email
 
         spawnedEmail.GetComponentInChildren<TextMeshProUGUI>().text = PossibleEmails[chosenEmail].subject.ToString();

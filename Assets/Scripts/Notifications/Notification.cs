@@ -63,6 +63,7 @@ public class Notification : MonoBehaviour
     [Flags]
     public enum NotificationModes
     {
+        None = 0,
         Popup = 1,
         Notification = 2,
         NotificationAndPopup = Popup | Notification
