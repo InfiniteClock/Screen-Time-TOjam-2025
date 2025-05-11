@@ -30,6 +30,7 @@ public class Phone : MonoBehaviour
 
     public GameObject passoutScreen;
     public GameObject gameoverScreen;
+    public GameObject winScreen;
     public static string CurrentTime { get; private set; } = string.Empty;
     private Coroutine ClockRoutine;
     private Coroutine TutorialRoutine;
@@ -144,6 +145,7 @@ public class Phone : MonoBehaviour
     {
         passoutScreen.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         gameoverScreen.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
+        winScreen.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         timeHours = 10;
         timeMinutes = 0;
         timeAMPM = "PM";
@@ -203,7 +205,6 @@ public class Phone : MonoBehaviour
         if (TutorialRoutine != null)
             StopCoroutine(TutorialRoutine);
 
-
         // Switch to night over scene
 
         int sleptHours = alarmHours - timeHours;
@@ -220,7 +221,10 @@ public class Phone : MonoBehaviour
         if (night < 3)
             night++;
         else
-            // Win the game
+        {
+            night++;
+            winScreen.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1f);
+        }
         StartCoroutine(NewDay());
     }
 
@@ -435,7 +439,10 @@ public class Phone : MonoBehaviour
             // Perform any in between night effects here
             yield return null;
         }
-        StartNight();
+        if (night <= 3)
+            StartNight();
+        else
+            SceneManager.LoadScene("Credits");
     }
 
     public void NewAppOpened(int appNumber)
