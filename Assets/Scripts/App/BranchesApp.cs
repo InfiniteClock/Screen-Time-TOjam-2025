@@ -46,11 +46,11 @@ public class BranchesApp : App
         else
             spawnedPost = Instantiate(instance.textPostPrefab, instance.contentParent);
 
+        // Make ads more green
         if (post.type == SocialMediaPosts.Type.ad)
-        {
-            Debug.Log("Changed colour");
             spawnedPost.GetComponent<Image>().color = new Color(0.75f, 1f, 0.65f);
-        }
+        else
+            spawnedPost.transform.GetChild(2).gameObject.SetActive(false); // Disable ad label
 
         // PFP (Child 0)
         Sprite pfp = instance.profilePictures[Random.Range(0, instance.profilePictures.Count)];
@@ -60,29 +60,45 @@ public class BranchesApp : App
         string name = instance.usernames[Random.Range(0, instance.usernames.Count)];
         spawnedPost.transform.GetChild(1).GetComponent<TMP_Text>().text = name;
 
-        // Body (Child 2)
+        // Body (Child 3)
         string body = post.body;
         string w1 = GetRandomWord(), w2 = GetRandomWord(), w3 = GetRandomWord();
         body = body.Replace("<word 1>", w1).Replace("<word 2>", w2).Replace("<word 3>", w3);
 
         string GetRandomWord() => instance.words[Random.Range(0, instance.words.Count)];
 
-        spawnedPost.transform.GetChild(2).GetComponent<TMP_Text>().text = body;
+        spawnedPost.transform.GetChild(3).GetComponent<TMP_Text>().text = body;
 
-        int buttonIndex = 3;
+        int buttonIndex = 4;
 
         if (addImage)
         {
             Sprite image = instance.images[Random.Range(0, instance.images.Count)];
-            spawnedPost.transform.GetChild(3).GetComponent<Image>().sprite = image;
-            buttonIndex = 4;
+            spawnedPost.transform.GetChild(4).GetComponent<Image>().sprite = image;
+            buttonIndex = 5;
         }
 
-        BranchesPost postComp = spawnedPost.AddComponent<BranchesPost>();
-        postComp.post = post;
+        //BranchesPost postComp = spawnedPost.AddComponent<BranchesPost>();
+        //postComp.post = post;
 
         // TODO: Set up button callback
-        spawnedPost.transform.GetChild(buttonIndex).GetComponent<Button>().onClick.AddListener(() => Debug.Log("Liked"));
+        Button button = spawnedPost.transform.GetChild(buttonIndex).GetComponent<Button>();
+        button.onClick.AddListener(() => instance.ClickedPost(button, post));
+    }
+
+    void ClickedPost(Button button, SocialMediaPosts post)
+    {
+        // Make like button red
+        var colours = button.colors;
+        colours.normalColor = Color.red;
+        button.colors = colours;
+
+        if (post.type == SocialMediaPosts.Type.ad)
+            ScoreManager.IncrementIncorrectOptions();
+        else
+            ScoreManager.IncrementCorrectOptions();
+
+        NotificationManager.DialogueClicked(post);
     }
 
 
@@ -96,7 +112,9 @@ public class BranchesApp : App
     protected override void OnAppClosed() { }
 }
 
+/*
 public class BranchesPost : MonoBehaviour
 {
     public SocialMediaPosts post;
 }
+*/
