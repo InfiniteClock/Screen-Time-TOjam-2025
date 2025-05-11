@@ -45,4 +45,7 @@ public class AppMenu : MonoBehaviour
         else
             gameObject.SetActive(active);
     }
+
+    public void Open() => SetActive(true);
+    public void Close() => SetActive(false);
 }

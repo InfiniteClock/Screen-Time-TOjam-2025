@@ -7,6 +7,12 @@ using UnityEngine.UI;
 
 public class EmailSelector : MonoBehaviour
 {
+    public static EmailSelector instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     [SerializeField] public List<Email> PossibleEmails = new List<Email>();
 
     [SerializeField] private GameObject emailPrefab;
@@ -24,7 +30,7 @@ public class EmailSelector : MonoBehaviour
     [SerializeField] public SelectingEmail selectedEmail;
 
     private int chosenEmail;
-    [SerializeField] private OpenClose_Function openClose_Function;
+    [SerializeField] private AppMenu openClose_Function;
 
     
     [SerializeField] GameObject confettiPrefab;
@@ -32,9 +38,14 @@ public class EmailSelector : MonoBehaviour
     [SerializeField] GameObject FowardButtonObj;
    
 
-    private void instantiateEmail(GameObject email)
+    public static void AddEmail()
     {
-        spawnedEmail = GameObject.Instantiate(emailPrefab, location);
+        instance.instantiateEmail();
+    }
+
+    private void instantiateEmail()
+    {
+        spawnedEmail = Instantiate(emailPrefab, location);
         
         //picking random email
         chosenEmail = Random.Range(0, PossibleEmails.Count);
@@ -44,22 +55,10 @@ public class EmailSelector : MonoBehaviour
         spawnedEmail.GetComponentInChildren<TextMeshProUGUI>().text = PossibleEmails[chosenEmail].subject.ToString();
         spawnedEmail.transform.GetChild(0).GetComponent<Image>().sprite = PossibleEmails[chosenEmail].profileIcon;
 
-        spawnedEmail.GetComponent<Button>().onClick.AddListener(() => GameObject.Find("Open Email").GetComponent<AppMenu>().SetActive(true));
+        spawnedEmail.GetComponent<Button>().onClick.AddListener(GameObject.Find("Open Email").GetComponent<AppMenu>().Open);
 
         spawnedEmail.GetComponent<SelectingEmail>().emailID = chosenEmail; 
        
-    }
-    private void Update()
-    {
-        TestSpawnEmail();
-    }
-    private void TestSpawnEmail()
-    {
-        if (Input.GetKeyUp(KeyCode.T)) 
-        {
-            Debug.Log("spawned email");
-            instantiateEmail(emailPrefab);
-        }
     }
 
     public void UpdateOpenEmailText()
