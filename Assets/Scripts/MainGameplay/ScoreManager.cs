@@ -16,6 +16,24 @@ public static class ScoreManager
 
     public static void IncrementIncorrectOptions()
     {
+        int numb = Random.Range(1, Phone.Instance.night+1);
+        switch (numb)
+        {
+            case 1:
+                DialogueSpawner.MailSpawnedToday++;
+                EmailSelector.AddEmail(Notification.NotificationModes.Popup);
+                break;
+            case 2:
+                DialogueSpawner.MessagesSpawnedToday++;
+                MessagesApp.AddMessage(Notification.NotificationModes.Popup);
+                break;
+            case 3:
+                DialogueSpawner.PostsSpawnedToday++;
+                var post = BranchesApp.AddPost(Notification.NotificationModes.Popup);
+                if (post.type == SocialMediaPosts.Type.ad)
+                    DialogueSpawner.AdsSpawnedToday++;
+                break;
+        }
         IncorrectOptions++;
         OptionClicked();
     }

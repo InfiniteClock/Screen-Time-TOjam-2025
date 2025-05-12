@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2415b4f87beb4ea4f842f20531f4588d, type: 3}
   m_Name: DeliveryGuy
   m_EditorClassIdentifier: 
-  sender: 0
-  message: 
-  correctOption1: 
-  correctOption2: 
-  wrongOption: 
-  responses: []
+  pfp: {fileID: 0}
+  sender: 6
+  message: I'm here
+  responses:
+  - text: Okay, thank you
+    isCorrect: 1
+  - text: Leave it at the door
+    isCorrect: 1
+  - text: I'm here for you too bro
+    isCorrect: 0

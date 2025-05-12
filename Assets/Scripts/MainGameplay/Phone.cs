@@ -31,6 +31,7 @@ public class Phone : MonoBehaviour
     public GameObject passoutScreen;
     public GameObject gameoverScreen;
     public GameObject winScreen;
+    public SpriteRenderer transitionScreen;
     public static string CurrentTime { get; private set; } = string.Empty;
     private Coroutine ClockRoutine;
     private Coroutine TutorialRoutine;
@@ -42,10 +43,11 @@ public class Phone : MonoBehaviour
     private bool firstTimeBranches = true;
     private void Start()
     {
+        transitionScreen.color = new Color(0, 0, 0, 0);
         StartNight();
     }
 
-    private IEnumerator ClockTick(float secondsPerMin = 1f)
+    private IEnumerator ClockTick(float secondsPerMin = 0.3333333f)
     {
         while (clockActive)
         {
@@ -98,8 +100,8 @@ public class Phone : MonoBehaviour
         float ratio5 = currentSleepy * 1.0f + permanentSleepy * 0.0f;
         hand.swayDistSpeed = ratio3;
         hand.swayRotSpeed = ratio3;
-        hand.swayDist = ratio4;
-        hand.swayRot = ratio4;
+        hand.swayDist = ratio1;
+        hand.swayRot = ratio1;
         FX.DistortLensIntensity(Mathf.Lerp(0f,-10f,ratio1), Mathf.Lerp(0f,-30f,ratio1), Mathf.Lerp(5f,2f,ratio1));
         FX.DistortLensScale(Mathf.Lerp(1f, 0.95f, ratio3), Mathf.Lerp(1f, 1.05f, ratio5), Mathf.Lerp(5f, 2f, ratio1));
         FX.ChromaticIntensity(Mathf.Lerp(0f, 0.5f, ratio1), Mathf.Lerp(0f, 1f, ratio1), Mathf.Lerp(5f, 2f, ratio1));
@@ -146,6 +148,7 @@ public class Phone : MonoBehaviour
         passoutScreen.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         gameoverScreen.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
         winScreen.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
+
         timeHours = 10;
         timeMinutes = 0;
         timeAMPM = "PM";
@@ -224,6 +227,10 @@ public class Phone : MonoBehaviour
         {
             night++;
             winScreen.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1f);
+        }
+        foreach(App app in App.All.Values)
+        {
+            app.Close(true);
         }
         StartCoroutine(NewDay());
     }
@@ -433,16 +440,23 @@ public class Phone : MonoBehaviour
     private IEnumerator NewDay()
     {
         float timer = 0f;
-        while (timer < 3f)
+        while (timer < 2f)
         {
             timer += Time.deltaTime;
-            // Perform any in between night effects here
+            transitionScreen.color = new Color(0,0,0,Mathf.Lerp(0,1,timer/2f));
             yield return null;
         }
         if (night <= 3)
             StartNight();
         else
             SceneManager.LoadScene("Credits");
+        timer = 0f;
+        while (timer < 2f)
+        {
+            timer += Time.deltaTime;
+            transitionScreen.color = new Color(0, 0, 0, Mathf.Lerp(1, 0, timer / 2f));
+            yield return null;
+        }
     }
 
     public void NewAppOpened(int appNumber)

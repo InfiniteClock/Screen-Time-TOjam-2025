@@ -12,10 +12,10 @@ public class DialogueSpawner : MonoBehaviour
 
     public Vector2Int messagesPerAppPerNight = new Vector2Int(7, 11);
 
-    public static int MailSpawnedToday { get; private set; }
-    public static int MessagesSpawnedToday { get; private set; }
-    public static int PostsSpawnedToday { get; private set; }
-    public static int AdsSpawnedToday { get; private set; }
+    public static int MailSpawnedToday { get; set; }
+    public static int MessagesSpawnedToday { get; set; }
+    public static int PostsSpawnedToday { get; set; }
+    public static int AdsSpawnedToday { get; set; }
     public static int NormalPostsSpawnedToday => PostsSpawnedToday - AdsSpawnedToday;
 
     // THIS IS REALLY STUPID I DONT CARE GAHHHH
@@ -50,7 +50,7 @@ public class DialogueSpawner : MonoBehaviour
         PostsSpawnedToday = SpawnPosts();
     }
 
-    int SpawnMail(int? count = null)
+    public int SpawnMail(int? count = null)
     {
         int mail = count ?? Random.Range(messagesPerAppPerNight.x, messagesPerAppPerNight.y + 1);
         for (int i = 0; i < mail; i++)
@@ -58,7 +58,7 @@ public class DialogueSpawner : MonoBehaviour
         return mail;
     }
 
-    int SpawnMessages(int? count = null)
+    public int SpawnMessages(int? count = null)
     {
         int messages = count ?? Random.Range(messagesPerAppPerNight.x, messagesPerAppPerNight.y + 1);
         for (int i = 0; i < messages; i++)
@@ -66,7 +66,7 @@ public class DialogueSpawner : MonoBehaviour
         return messages;
     }
 
-    int SpawnPosts(int? count = null)
+    public int SpawnPosts(int? count = null)
     {
         int posts = count ?? Random.Range(messagesPerAppPerNight.x, messagesPerAppPerNight.y + 1);
         for (int i = 0; i < posts; i++)

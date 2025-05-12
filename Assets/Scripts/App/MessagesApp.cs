@@ -81,6 +81,7 @@ public class MessagesApp : App
 
         void SetButton(int buttonIndex, int responseIndex)
         {
+            
             choiceButtons[buttonIndex].onClick.RemoveAllListeners();
             choiceButtons[buttonIndex].onClick.AddListener(() => ChoiceClicked(msgObj, message.responses[responseIndex].isCorrect));
             choiceTexts[buttonIndex].text = message.responses[responseIndex].text;

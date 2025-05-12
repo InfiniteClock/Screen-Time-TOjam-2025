@@ -23,4 +23,9 @@ public class HandCursor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
             Sound.Tap.PlayDirect();
     }
+
+    private void OnDisable()
+    {
+        Cursor.visible = true;
+    }
 }
