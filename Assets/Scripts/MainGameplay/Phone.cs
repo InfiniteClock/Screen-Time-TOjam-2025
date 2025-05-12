@@ -47,7 +47,7 @@ public class Phone : MonoBehaviour
         StartNight();
     }
 
-    private IEnumerator ClockTick(float secondsPerMin = 0.3333333f)
+    private IEnumerator ClockTick(float secondsPerMin = 0.5f)
     {
         while (clockActive)
         {
